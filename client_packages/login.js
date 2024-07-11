@@ -4,8 +4,9 @@ mp.events.add('client:loginData', (username, password) => {
     mp.events.callRemote("server:loginAccount", username, password);
 });
 
-mp.events.add('client:registerData', (username, email, password) => {
-    mp.events.callRemote("server:registerAccount", username, email, password);
+mp.events.add('client:regData', (usernameReg, passwordReg) => {
+    mp.console.logInfo(usernameReg, passwordReg)
+    mp.events.callRemote("server:regAccount", usernameReg, passwordReg);
 });
 
 mp.events.add('client:showLoginScreen', () => {

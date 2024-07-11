@@ -2,41 +2,76 @@
 <html>
 
 <body>
-  <form>
+  <div id="main">
     <div id="form">
-      <label>Username</label>
-      <input type="text" id="username">
+      <form>
+          <h1>Login</h1>
+          <label>Username</label>
+          <input type="text" id="username">
 
-      <label>Password</label>
-      <input type="password" id="password">
+          <label>Password</label>
+          <input type="password" id="password">
 
-      <button type="submit" onclick="sendAccountInfo(0);">Login</button>
+          <button type="submit" onclick="sendLoginInfo(0);">Login</button>
+      </form>
+
+      <form>
+          <h1>Register</h1>
+          <label>Username</label>
+          <input type="text" id="usernameReg">
+
+          <label>Password</label>
+          <input type="password" id="passwordReg">
+
+          <button type="submit" onclick="sendRegInfo(0);">Register</button>
+      </form>
     </div>
-  </form>
+  </div>
 
   <style>
+    #main {
+      display: flex;
+      justify-content: center;
+      padding: 10rem;
+    }
+
     #form {
       background-color: black;
       opacity: 0.7;
-      margin-top: 15rem;
+      /* margin-top: 15rem;
       margin-left: 15rem;
       margin-right: 15rem;
-      margin-bottom: 15rem;
+      margin-bottom: 15rem; */
+      display: flex;
+      flex-direction: column;
     }
 
     label {
       color: white;
     }
+
+    h1 {
+      color: white;
+    }
   </style>
 
   <script>
-    function sendAccountInfo() {
+    function sendLoginInfo() {
       event.preventDefault();
 
       let username = document.getElementById('username');
       let password = document.getElementById('password');
 
       mp.trigger('client:loginData', username.value, password.value);
+    }
+
+    function sendRegInfo() {
+      event.preventDefault();
+
+      let usernameReg = document.getElementById('usernameReg');
+      let passwordReg = document.getElementById('passwordReg');
+
+      mp.trigger('client:regData', usernameReg.value, passwordReg.value);
     }
   </script>
 </body>

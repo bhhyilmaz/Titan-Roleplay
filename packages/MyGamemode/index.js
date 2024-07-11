@@ -1,3 +1,3 @@
 require('./App.js');
 
-// mp.players.reload    Resources()
+// mp.players.reloadResources()
