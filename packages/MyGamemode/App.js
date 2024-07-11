@@ -15,10 +15,10 @@ const userSchema = new Schema
 const User = mongoose.model('User', userSchema);
 
 mp.events.add('server:loginAccount', (player, username, password) => {
-      console.log("bilgiler: " + username, password)
+  player.call('client:loginHandler', ['logged']);
 });
 
-mp.events.add('server:tregAccoun', (player, usernameReg, passwordReg) => {
+mp.events.add('server:regAccount', (player, usernameReg, passwordReg) => {
   console.log("hesap olusturuldu:" + usernameReg, passwordReg)
   User.create({
     username: usernameReg,

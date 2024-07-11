@@ -9,6 +9,17 @@ mp.events.add('client:regData', (usernameReg, passwordReg) => {
     mp.events.callRemote("server:regAccount", usernameReg, passwordReg);
 });
 
+mp.events.add('client:loginHandler', (handle) => {
+    if (handle === 'logged') {
+        mp.events.call('client:hideLoginScreen');
+    } else {
+        mp.console.logInfo('false baby')
+    }
+});
+
+// player.spawn(new mp.Vector3(-425.517, 1123.620, 325.8544));
+//     mp.events.call('client:hideLoginScreen');
+
 mp.events.add('client:showLoginScreen', () => {
     loginBrowser = mp.browsers.new('package://Login/index.html');
     mp.players.local.freezePosition(true);
