@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+
+<style>
+    * {
+        outline: none;
+        border: none;
+    }
+</style>
+
+<form>
+    <h1>Register</h1>
+    <label>Username</label>
+    <input type="text" id="usernameReg">
+
+    <label>Password</label>
+    <input type="password" id="passwordReg">
+    <button type="submit" onclick="sendRegInfo(0);">Register</button>
+</form>
+
+<script>
+    function sendRegInfo() {
+        event.preventDefault();
+
+        let usernameReg = document.getElementById('usernameReg');
+        let passwordReg = document.getElementById('passwordReg');
+
+        mp.trigger('client:regData', usernameReg.value, passwordReg.value);
+    }
+</script>
+</body>
+
+</html>
