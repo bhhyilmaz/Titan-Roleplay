@@ -9,16 +9,13 @@ mp.events.add('client:regData', (usernameReg, passwordReg) => {
     mp.events.callRemote("server:regAccount", usernameReg, passwordReg);
 });
 
-mp.events.add('client:loginHandler', (handle) => {
-    if (handle === 'logged') {
+mp.events.add('client:loginHandler', (res) => {
+    if (res = true) {
         mp.events.call('client:hideLoginScreen');
     } else {
-        mp.console.logInfo('false baby')
+        mp.console.logInfo('false')
     }
 });
-
-// player.spawn(new mp.Vector3(-425.517, 1123.620, 325.8544));
-//     mp.events.call('client:hideLoginScreen');
 
 mp.events.add('client:showLoginScreen', () => {
     loginBrowser = mp.browsers.new('package://Login/index.html');
@@ -40,7 +37,7 @@ mp.events.add('client:hideLoginScreen', () => {
     mp.gui.cursor.show(false, false);
     mp.game.ui.displayRadar(true);
     mp.events.call("client:disableLoginCamera");
-    mp.gui.chat.push('İlk bug fixlendi, hayırlı ve uğurlu olsun :D');
+    mp.gui.chat.push('Merhaba Dunya');
 });
 
 mp.events.add('client:enableLoginCamera', () => {

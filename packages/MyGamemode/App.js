@@ -15,7 +15,11 @@ const userSchema = new Schema
 const User = mongoose.model('User', userSchema);
 
 mp.events.add('server:loginAccount', (player, username, password) => {
-  player.call('client:loginHandler', ['logged']);
+  info = true;
+
+  player.call('client:loginHandler', [info]);
+
+  if (info = true) player.spawn(new mp.Vector3(-425.517, 1123.620, 325.8544));
 });
 
 mp.events.add('server:regAccount', (player, usernameReg, passwordReg) => {
