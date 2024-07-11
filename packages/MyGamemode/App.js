@@ -14,8 +14,15 @@ const userSchema = new Schema
 );
 const User = mongoose.model('User', userSchema);
 
-mp.events.add('server:loginAccount', (player, username, password) => {
-  info = true;
+mp.events.add('server:loginAccount', async (player, username, password) => {
+  let info = false;
+  
+  await User.find({ username: username, password: password })
+  .then(user => {
+    if (user[0]) if (username = user[0].username) info = true;
+  });
+
+  console.log(info)
 
   player.call('client:loginHandler', [info]);
 
@@ -23,7 +30,6 @@ mp.events.add('server:loginAccount', (player, username, password) => {
 });
 
 mp.events.add('server:regAccount', (player, usernameReg, passwordReg) => {
-  console.log("hesap olusturuldu:" + usernameReg, passwordReg)
   User.create({
     username: usernameReg,
     password: passwordReg
