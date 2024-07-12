@@ -19,7 +19,10 @@ mp.events.add('server:loginAccount', async (player, username, password) => {
   
   await User.find({ username: username, password: password })
   .then(user => {
-    if (user[0]) if (username = user[0].username) info = true;
+    if (user[0]) if (username = user[0].username) {
+      info = true;
+      console.log(username + "giris yapti.")
+    }
   });
 
   player.call('client:loginHandler', [info]);
