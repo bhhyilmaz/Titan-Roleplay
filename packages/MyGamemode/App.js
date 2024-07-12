@@ -22,11 +22,9 @@ mp.events.add('server:loginAccount', async (player, username, password) => {
     if (user[0]) if (username = user[0].username) info = true;
   });
 
-  console.log(info)
-
   player.call('client:loginHandler', [info]);
 
-  if (info = true) player.spawn(new mp.Vector3(-425.517, 1123.620, 325.8544));
+  if (info = true) player.spawn(new mp.Vector3(-925.517, 1123.620, 325.8544));
 });
 
 mp.events.add('server:regAccount', (player, usernameReg, passwordReg) => {

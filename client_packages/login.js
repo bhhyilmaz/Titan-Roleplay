@@ -9,13 +9,9 @@ mp.events.add('client:regData', (usernameReg, passwordReg) => {
     mp.events.callRemote("server:regAccount", usernameReg, passwordReg);
 });
 
-// mp.events.add('client:loginHandler', (res) => {
-//     if (res = true) {
-//         mp.events.call('client:hideLoginScreen');
-//     } else {
-//         mp.console.logInfo('false')
-//     }
-// });
+mp.events.add('client:loginHandler', (res) => {
+    if (res === true) mp.events.call('client:hideLoginScreen');
+});
 
 mp.events.add('client:showLoginScreen', () => {
     loginBrowser = mp.browsers.new('package://Login/index.html');
