@@ -1,12 +1,10 @@
 var loginBrowser, loginCam;
 
 mp.events.add('client:loginData', (username, password) => {
-    mp.console.logInfo("alindi: " + username + " " + password)
     mp.events.callRemote("server:loginAccount", username, password);
 });
 
 mp.events.add('client:regData', (usernameReg, passwordReg) => {
-    mp.console.logInfo("alindi: " + usernameReg + passwordReg)
     mp.events.callRemote("server:regAccount", usernameReg, passwordReg);
 });
 
