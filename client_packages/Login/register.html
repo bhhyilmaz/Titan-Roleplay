@@ -60,7 +60,13 @@
 
   <div
     style="box-shadow: 0 .1rem .3rem 0 rgba(0,0,0,1); display: flex; justify-content: center; background-color: #335e7a; top: 10cap;">
-    <div>
+    <div style="display: flex;">
+      <div style="display: flex; flex-direction: column; justify-content: center;">
+        <a style="font-style: italic; display: none; color: rgb(110, 0, 0);" id="empty">Kullanıcı bilgileri boş
+          bırakılamaz.</a>
+        <a style="font-style: italic; display: none; color: rgb(110, 0, 0);" id="regex">Kullanıcı adı uygunsuz karakter
+          içeriyor.</a>
+      </div>
       <form style="padding: 1rem; display: flex; align-items: center; gap: 0.5rem;">
         <div style="display: flex; border-radius: 0.1rem; width: 12rem; height: 2.5rem;">
           <input style="font-weight: 600; padding-left: 1rem;" placeholder="Kullanıcı Adı" type="text" id="usernameReg">
@@ -77,11 +83,30 @@
   <script>
     function sendRegInfo() {
       event.preventDefault();
+      let usernameReg = document.getElementById('usernameReg').value;
+      let passwordReg = document.getElementById('passwordReg').value;
+      let pass1, pass2;
 
-      let usernameReg = document.getElementById('usernameReg');
-      let passwordReg = document.getElementById('passwordReg');
+      if (usernameReg === "" || passwordReg === "") {
+        let empty = document.getElementById('empty');
+        empty.style.display = "block";
+        pass1 = false;
+      } else {
+        empty.style.display = "none";
+        pass1 = true;
+      }
 
-      mp.trigger('client:regData', usernameReg.value, passwordReg.value);
+      if ((/^[a-zA-Z0-9]+$/.test(usernameReg)) === false) {
+        regex.style.display = "block";
+        pass2 = false;
+      } else {
+        regex.style.display = "none";
+        pass2 = true;
+      }
+
+      if (pass1 === true && pass2 === true) {
+        mp.trigger('client:regData', usernameReg, passwordReg);
+      }
     }
   </script>
 </body>
