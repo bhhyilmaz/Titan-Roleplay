@@ -1,5 +1,5 @@
 mp.events.addCommand("pos", (player) => {
-    console.log(JSON.stringify(player.position));
+    console.log(player.position);
 });
 
 mp.events.addCommand("duyuru", (player, message) => {

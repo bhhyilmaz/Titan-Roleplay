@@ -8,7 +8,7 @@ mp.events.add('client:regData', (usernameReg, passwordReg) => {
     mp.events.callRemote("server:regAccount", usernameReg, passwordReg);
 });
 
-mp.events.add('client:loginHandler', (res) => {
+mp.events.add('client:loginCase', (res) => {
     if (res === true) mp.events.call('client:hideLoginScreen');
 });
 

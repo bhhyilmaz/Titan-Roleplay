@@ -1,5 +1,5 @@
 require('./login.js');
 
-mp.events.add('playerReady', () => {
+mp.events.add('playerJoin', () => {
   mp.events.call('client:showLoginScreen');
 });
