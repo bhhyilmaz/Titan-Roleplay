@@ -5,3 +5,6 @@ linux_x64.tar.gz
 ragemp-server.exe
 package-lock.json
 BugTrap-x64.dll
+disableCefDev.reg
+enableCefDev.reg
+client_packages/.listcache
