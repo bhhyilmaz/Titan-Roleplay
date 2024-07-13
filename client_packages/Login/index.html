@@ -60,7 +60,10 @@
 
   <div
     style="box-shadow: 0 .1rem .3rem 0 rgba(0,0,0,1); display: flex; justify-content: center; background-color: #335e7a; top: 10cap;">
-    <div>
+    <div style="display: flex;">
+      <div style="display: flex; flex-direction: column; justify-content: center;">
+        <a style="font-style: italic; display: none; color: rgb(110, 0, 0);" id="wg">Yanlış kullanıcı bilgileri.</a>
+      </div>
       <form style="padding: 1rem; display: flex; align-items: center; gap: 0.5rem;">
         <div style="display: flex; border-radius: 0.1rem; width: 12rem; height: 2.5rem;">
           <input style="font-weight: 600; padding-left: 1rem;" placeholder="Kullanıcı Adı" type="text" id="username">
@@ -80,6 +83,10 @@
 
       let username = document.getElementById('username');
       let password = document.getElementById('password');
+
+      mp.events.add('html:loginCase', (res) => {
+        if (res === false) wg.style.display = "block";
+      });
 
       mp.trigger('client:loginData', username.value, password.value);
     }

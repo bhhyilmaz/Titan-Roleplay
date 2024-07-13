@@ -8,9 +8,18 @@ const userSchema = new Schema
     username: String,
     password: String,
     pos: {
-      x: Number,
-      y: Number,
-      z: Number
+      x: {
+        type: Number,
+        default: -10
+      },
+      y: {
+        type: Number,
+        default: 5
+      },
+      z: {
+        type: Number,
+        default: 70
+      }
     }
   },
   {
@@ -21,7 +30,7 @@ const User = mongoose.model('User', userSchema);
 var Username;
 
 mp.events.add('server:loginAccount', async (player, username, password) => {
-  let info;
+  let info = false;
   let Pos;
   
   await User.find({ username: username, password: password })
@@ -31,11 +40,9 @@ mp.events.add('server:loginAccount', async (player, username, password) => {
       Username = user[0].username;
       Pos = user[0].pos;
     }
-
-    if (info === true) {
-      player.call('client:loginCase', [info]);
-      player.spawn(new mp.Vector3(Pos.x, Pos.y, Pos.z));
-    }
+    
+    if (info === true) player.spawn(new mp.Vector3(Pos.x, Pos.y, Pos.z));
+    player.call('client:loginCase', [info]);
   });
 });
 

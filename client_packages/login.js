@@ -1,4 +1,5 @@
-var loginBrowser, loginCam;
+var browser = mp.browsers.new('package://Login/index.html');
+var loginCam;
 
 mp.events.add('client:loginData', (username, password) => {
     mp.events.callRemote("server:loginAccount", username, password);
@@ -9,11 +10,17 @@ mp.events.add('client:regData', (usernameReg, passwordReg) => {
 });
 
 mp.events.add('client:loginCase', (res) => {
-    if (res === true) mp.events.call('client:hideLoginScreen');
+    let ripBrowser = false;
+
+    if (res === true) {
+        mp.events.call("client:hideLoginScreen");
+        ripBrowser = true;
+    }
+
+    if(ripBrowser === false) browser.call('html:loginCase', res);
 });
 
 mp.events.add('client:showLoginScreen', () => {
-    loginBrowser = mp.browsers.new('package://Login/index.html');
     mp.players.local.freezePosition(true);
     mp.game.ui.setMinimapVisible(true);
     mp.gui.chat.activate(false);
@@ -24,7 +31,7 @@ mp.events.add('client:showLoginScreen', () => {
 });
 
 mp.events.add('client:hideLoginScreen', () => {
-    loginBrowser.destroy();
+    browser.destroy();
     mp.players.local.freezePosition(false);
     mp.game.ui.setMinimapVisible(false);
     mp.gui.chat.activate(true);
