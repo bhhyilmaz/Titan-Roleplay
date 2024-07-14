@@ -6,5 +6,5 @@
 	"announce" : false,
 	"csharp" : "disabled",
 	"port": 22005,
-	"allow-cef-debugging": false
+	"allow-cef-debugging": true
 }

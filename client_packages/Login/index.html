@@ -7,7 +7,7 @@
   <link href="https://fonts.googleapis.com/css2?family=Lexend:wght@100..900&display=swap" rel="stylesheet">
 </head>
 
-<body style="margin:0px; display: grid; background-color: #579bc8">
+<body style="margin:0px; display: grid; background-color: #4c4c4c">
   <style>
     * {
       outline: none;
@@ -59,10 +59,11 @@
   </style>
 
   <div
-    style="box-shadow: 0 .1rem .3rem 0 rgba(0,0,0,1); display: flex; justify-content: center; background-color: #335e7a; top: 10cap;">
+    style="box-shadow: 0 .1rem .3rem 0 rgba(0,0,0,1); display: flex; justify-content: center; background-color: rgba(0,0,0,.3); top: 10cap;">
     <div style="display: flex;">
       <div style="display: flex; flex-direction: column; justify-content: center;">
         <a style="font-style: italic; display: none; color: rgb(110, 0, 0);" id="wg">Yanlış kullanıcı bilgileri.</a>
+        <a style="font-style: italic; display: none; color: rgb(4, 140, 16);" id="redirect">Başarıyla kayıt oldunuz. Yönlendiriliyorsunuz...</a>
       </div>
       <form style="padding: 1rem; display: flex; align-items: center; gap: 0.5rem;">
         <div style="display: flex; border-radius: 0.1rem; width: 12rem; height: 2.5rem;">
@@ -78,6 +79,10 @@
   </div>
 
   <script>
+    mp.events.add('html:regCase0', (res) => {
+      console.log(res);
+    });
+
     function sendLoginInfo() {
       event.preventDefault();
 

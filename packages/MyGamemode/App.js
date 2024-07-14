@@ -2,6 +2,22 @@ const User = require('./schemas/User');
 
 var Username;
 
+mp.events.add('server:regAccount', async (player, usernameReg, passwordReg) => {
+  let info = false;
+
+  await User.find({ username: usernameReg }).then(async (res) => {
+    const lenght = Number(res.length);
+    if (lenght === 0) {
+      await User.create({
+        username: usernameReg,
+        password: passwordReg
+      });
+    } else if (lenght === 1) info = true;
+
+    player.call('client:regCase', [info]);
+  });
+});
+
 mp.events.add('server:loginAccount', async (player, username, password) => {
   let info = false;
   let Pos;
@@ -29,22 +45,6 @@ mp.events.add('playerQuit', async (player) => {
   } catch (error) {
     console.log(error);
   }
-});
-
-mp.events.add('server:regAccount', async (player, usernameReg, passwordReg) => {
-  let info = false;
-
-  await User.find({ username: usernameReg }).then(async (res) => {
-    const lenght = Number(res.length);
-    if (lenght === 0) {
-      await User.create({
-        username: usernameReg,
-        password: passwordReg
-      });
-    } else if (lenght === 1) info = true;
-
-    player.call('client:regCase', [info]);
-  });
 });
 
   // if (info === false) {
