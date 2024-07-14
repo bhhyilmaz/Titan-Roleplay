@@ -64,8 +64,9 @@
       <div style="display: flex; flex-direction: column; justify-content: center;">
         <a style="font-style: italic; display: none; color: rgb(110, 0, 0);" id="empty">Kullanıcı bilgileri boş
           bırakılamaz.</a>
-        <a style="font-style: italic; display: none; color: rgb(110, 0, 0);" id="regex">Kullanıcı adı uygunsuz karakter
-          içeriyor.</a>
+          <a style="font-style: italic; display: none; color: rgb(110, 0, 0);" id="char">Kullanıcı adı uygunsuz karakter
+            içeriyor.</a>
+          <a style="font-style: italic; display: none; color: rgb(110, 0, 0);" id="already">Bu kullanıcı adı kullanılamaz.</a>      
       </div>
       <form style="padding: 1rem; display: flex; align-items: center; gap: 0.5rem;">
         <div style="display: flex; border-radius: 0.1rem; width: 12rem; height: 2.5rem;">
@@ -74,13 +75,22 @@
         <div style="display: flex; border-radius: 0.1rem; width: 12rem; height: 2.5rem;">
           <input style="font-weight: 600; padding-left: 1rem;" placeholder="Şifre" type="password" id="passwordReg">
         </div>
-        <button id="mainButton" type="submit" onclick="sendRegInfo(0);">KAYIT</button>
+        <button type="submit" onclick="sendRegInfo(0);">KAYIT</button>
         <a id="a1" href="./index.html">GİRİŞ YAP</a>
       </form>
     </div>
   </div>
 
   <script>
+    mp.events.add('html:regCase', (res) => {
+      if (res === true) {
+        already.style.display = "block";
+      } else {
+        window.location.href = './index.html';
+        already.style.display = "none";
+      }
+    });
+
     function sendRegInfo() {
       event.preventDefault();
       let usernameReg = document.getElementById('usernameReg').value;
@@ -96,17 +106,16 @@
         pass1 = true;
       }
 
-      if ((/^[a-zA-Z0-9]+$/.test(usernameReg)) === false) {
-        regex.style.display = "block";
+      regex = /^[a-zA-Z0-9]+$/;
+      if ((regex.test(usernameReg)) === false) {
+        char.style.display = "block";
         pass2 = false;
       } else {
-        regex.style.display = "none";
+        char.style.display = "none";
         pass2 = true;
       }
 
-      if (pass1 === true && pass2 === true) {
-        mp.trigger('client:regData', usernameReg, passwordReg);
-      }
+      if (pass1 === true || pass2 === true) mp.trigger('client:regData', usernameReg, passwordReg);
     }
   </script>
 </body>
