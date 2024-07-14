@@ -19,6 +19,10 @@ mp.events.add('client:regData', (usernameReg, passwordReg) => {
 
 mp.events.add('client:regCase', (res) => {
     browser.call('html:regCase', res);
+
+    setTimeout(() => {
+        if (res === false) browser.execute(`rdr = true;`);
+    }, 1);
 });
 
 mp.events.add('client:showLoginScreen', () => {
@@ -26,7 +30,7 @@ mp.events.add('client:showLoginScreen', () => {
     mp.game.ui.setMinimapVisible(true);
     mp.gui.chat.activate(false);
     mp.gui.chat.show(false);
-    setTimeout(() => { mp.gui.cursor.show(true, true); }, 500);
+    setTimeout(() => { mp.gui.cursor.show(true, true); }, 1);
     mp.game.ui.displayRadar(false);
     mp.events.call('client:enableLoginCamera');
 });
