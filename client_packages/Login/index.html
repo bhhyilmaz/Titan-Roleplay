@@ -79,8 +79,18 @@
   </div>
 
   <script>
-    var rdr;
-    if (rdr === true) redirect.style.display = "block";
+    // var rdr, usernameReg, passwordReg;
+
+    // if (rdr === true) {
+    //   redirect.style.display = "block";
+    //   console.log('CEF: ' + usernameReg + " " + passwordReg);
+    // }
+
+    mp.events.add('html:regCaseUsername', (res) => {
+      setTimeout(() => {
+        console.log(username)
+      }, 1000);
+    });
 
     function sendLoginInfo() {
       event.preventDefault();

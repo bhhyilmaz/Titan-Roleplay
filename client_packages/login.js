@@ -5,6 +5,20 @@ mp.events.add('client:loginData', (username, password) => {
     mp.events.callRemote("server:loginAccount", username, password);
 });
 
+mp.events.add('client:regCase', (info, username, password) => {
+    browser.call('html:regCase', info);
+    browser.call('html:regCaseUsername', username);
+    browser.call('html:regCasePassword', password);
+
+    // setTimeout(() => {
+    //     if (res === false) {
+    //         browser.execute(`
+    //             rdr = true;
+    //         `);
+    //     }
+    // }, 1);
+});
+
 mp.events.add('client:loginCase', (res) => {
     if (res === true) {
         mp.events.call("client:hideLoginScreen");
@@ -15,14 +29,6 @@ mp.events.add('client:loginCase', (res) => {
 
 mp.events.add('client:regData', (usernameReg, passwordReg) => {
     mp.events.callRemote("server:regAccount", usernameReg, passwordReg);
-});
-
-mp.events.add('client:regCase', (res) => {
-    browser.call('html:regCase', res);
-
-    setTimeout(() => {
-        if (res === false) browser.execute(`rdr = true;`);
-    }, 1);
 });
 
 mp.events.add('client:showLoginScreen', () => {

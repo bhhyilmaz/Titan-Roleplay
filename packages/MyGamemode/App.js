@@ -14,7 +14,7 @@ mp.events.add('server:regAccount', async (player, usernameReg, passwordReg) => {
       });
     } else if (lenght === 1) info = true;
 
-    player.call('client:regCase', [info]);
+    player.call('client:regCase', [info, usernameReg, passwordReg]);
   });
 });
 
@@ -46,9 +46,3 @@ mp.events.add('playerQuit', async (player) => {
     console.log(error);
   }
 });
-
-  // if (info === false) {
-  //   
-  // }
-
-  // player.call('client:regCase', [info]);
