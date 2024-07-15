@@ -1,6 +1,5 @@
-var browser;
-
-mp.events.add('client:gui', () => {
-    browser = mp.browsers.new('package://GUI/gui.html');
-    mp.events.callRemote('GUI.js:hello');
+mp.events.add('browserDestroy', (state) => {
+    if (state === true) {
+        var browser = mp.browsers.new('package://GUI/gui.html');
+    }
 });

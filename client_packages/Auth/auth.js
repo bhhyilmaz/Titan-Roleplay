@@ -47,6 +47,7 @@ mp.events.add('client:showLoginScreen', () => {
 
 mp.events.add('client:hideLoginScreen', () => {
     browser.destroy();
+    mp.events.call('browserDestroy', true);
     mp.players.local.freezePosition(false);
     mp.game.ui.setMinimapVisible(false);
     mp.gui.chat.activate(true);
