@@ -38,6 +38,7 @@ mp.events.add('client:regData', (usernameReg, passwordReg) => {
 });
 
 mp.events.add('client:showLoginScreen', () => {
+    mp.game.audio.setAudioFlag("DisableFlightMusic", true);
     mp.players.local.freezePosition(true);
     mp.game.ui.setMinimapVisible(true);
     mp.gui.chat.activate(false);

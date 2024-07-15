@@ -7,11 +7,20 @@
   <link href="https://fonts.googleapis.com/css2?family=Lexend:wght@100..900&display=swap" rel="stylesheet">
 </head>
 
-<body style="margin:0px; display: grid; background-color: #579bc8">
+<body style="margin:0px; display: grid;">
   <style>
     * {
       outline: none;
       border: none;
+    }
+
+    body {
+      background-image: url('./login.jpg');
+      background-repeat: no-repeat;
+      background-size: cover;
+      background-position: center;
+      background-attachment: fixed;
+      background-color: rgb(50, 50, 50);
     }
 
     input::placeholder {
@@ -59,7 +68,7 @@
   </style>
 
   <div
-    style="box-shadow: 0 .1rem .3rem 0 rgba(0,0,0,1); display: flex; justify-content: center; background-color: #335e7a; top: 10cap;">
+    style="box-shadow: 0 .1rem .3rem 0 rgba(0,0,0,1); display: flex; justify-content: center; background-color: rgba(0,0,0,1); top: 10cap;">
     <div style="display: flex;">
       <div style="display: flex; flex-direction: column; justify-content: center;">
         <a style="font-style: italic; display: none; color: rgb(110, 0, 0);" id="empty">Kullanıcı bilgileri boş

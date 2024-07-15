@@ -4,20 +4,32 @@
 <body>
     <style>
         h1 {
-            font-size: 2rem;
+            display: flex;
+            flex-shrink: unset;
+            background-color: black;
+            color: rgb(169, 169, 169);
+            padding: 1rem;
+            font-size: 1.5rem;
+            font-style: italic;
+            width: max-content;
+            gap: .5rem;
         }    
+
+        a {
+            color: white;
+            font-style: normal;
+        }
     </style>
 
-    <h1 id="h1"></h1>
-    <h1 id="h2"></h1>
+    <h1>Kullanıcı Adı: <a id="a1">asadsadasdassd</a></h1>
 </body>
 <script>
     mp.events.add('gui.html/username', username => {
-        document.getElementById('h1').innerHTML = username;
+        document.getElementById('a1').innerHTML = username;
     });
 
     mp.events.add('gui.html/usernameLogin', username => {
-        document.getElementById('h1').innerHTML = username;
+        document.getElementById('a1').innerHTML = username;
     });
 
 </script>
