@@ -18,6 +18,7 @@ mp.events.add('client:regCase', (info, username, password) => {
             mp.events.callRemote("server:rdr", username, password);
             setTimeout(() => {
                 mp.events.call("client:hideLoginScreen");
+                mp.events.call('gui.js/username', username);
             }, 2000);
         }
     }, 1);
@@ -47,7 +48,8 @@ mp.events.add('client:showLoginScreen', () => {
 
 mp.events.add('client:hideLoginScreen', () => {
     browser.destroy();
-    mp.events.call('browserDestroy', true);
+    mp.events.call('gui.js/browser', false);
+
     mp.players.local.freezePosition(false);
     mp.game.ui.setMinimapVisible(false);
     mp.gui.chat.activate(true);

@@ -2,10 +2,19 @@
 <html lang="en">
 
 <body>
+    <style>
+        #h1 {
+            font-size: 5rem;
+        }    
+    </style>
+
     <h1 id="h1"></h1>
 </body>
 <script>
-document.getElementById('h1').innerHTML = "merhaba"
+    mp.events.add('gui.html/username', username => {
+        document.getElementById('h1').innerHTML = username;
+    });
+
 </script>
 
 </html>
