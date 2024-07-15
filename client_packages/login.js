@@ -7,16 +7,14 @@ mp.events.add('client:loginData', (username, password) => {
 
 mp.events.add('client:regCase', (info, username, password) => {
     browser.call('html:regCase', info);
-    browser.call('html:regCaseUsername', username);
-    browser.call('html:regCasePassword', password);
 
-    // setTimeout(() => {
-    //     if (res === false) {
-    //         browser.execute(`
-    //             rdr = true;
-    //         `);
-    //     }
-    // }, 1);
+    setTimeout(() => {
+        if (info === false) {
+            browser.execute(`
+                rdr = true;
+            `);
+        }
+    }, 1);
 });
 
 mp.events.add('client:loginCase', (res) => {

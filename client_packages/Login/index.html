@@ -79,12 +79,10 @@
   </div>
 
   <script>
-    // var rdr, usernameReg, passwordReg;
-
-    // if (rdr === true) {
-    //   redirect.style.display = "block";
-    //   console.log('CEF: ' + usernameReg + " " + passwordReg);
-    // }
+    var rdr;
+    if (rdr === true) {
+      redirect.style.display = "block";
+    }
 
     mp.events.add('html:regCaseUsername', (res) => {
       setTimeout(() => {

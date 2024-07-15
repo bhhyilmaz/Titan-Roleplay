@@ -82,8 +82,8 @@
   </div>
 
   <script>
-    mp.events.add('html:regCase', (res) => {
-      if (res === true) {
+    mp.events.add('html:regCase', (info) => {
+      if (info === true) {
         already.style.display = "block";
       } else {
         window.location.href = './index.html';
