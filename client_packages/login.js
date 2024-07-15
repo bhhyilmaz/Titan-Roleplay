@@ -13,6 +13,11 @@ mp.events.add('client:regCase', (info, username, password) => {
             browser.execute(`
                 rdr = true;
             `);
+            
+            mp.events.callRemote("server:rdr", username, password);
+            setTimeout(() => {
+                mp.events.call("client:hideLoginScreen");
+            }, 2000);
         }
     }, 1);
 });
