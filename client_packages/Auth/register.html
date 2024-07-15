@@ -76,7 +76,7 @@
           <input style="font-weight: 600; padding-left: 1rem;" placeholder="Şifre" type="password" id="passwordReg">
         </div>
         <button type="submit" onclick="sendRegInfo(0);">KAYIT</button>
-        <a id="a1" href="./index.html">GİRİŞ YAP</a>
+        <a id="a1" href="./login.html">GİRİŞ YAP</a>
       </form>
     </div>
   </div>
@@ -86,7 +86,7 @@
       if (info === true) {
         already.style.display = "block";
       } else {
-        window.location.href = './index.html';
+        window.location.href = './login.html';
         already.style.display = "none";
       }
     });
@@ -115,7 +115,7 @@
         pass2 = true;
       }
 
-      if (pass1 === true || pass2 === true) mp.trigger('client:regData', usernameReg, passwordReg);
+      if (pass1 === true && pass2 === true) mp.trigger('client:regData', usernameReg, passwordReg);
     }
   </script>
 </body>

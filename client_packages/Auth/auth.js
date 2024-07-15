@@ -1,4 +1,4 @@
-var browser = mp.browsers.new('package://Login/index.html');
+var browser = mp.browsers.new('package://Auth/login.html');
 var loginCam;
 
 mp.events.add('client:loginData', (username, password) => {
