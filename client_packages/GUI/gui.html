@@ -3,15 +3,20 @@
 
 <body>
     <style>
-        #h1 {
-            font-size: 5rem;
+        h1 {
+            font-size: 2rem;
         }    
     </style>
 
     <h1 id="h1"></h1>
+    <h1 id="h2"></h1>
 </body>
 <script>
     mp.events.add('gui.html/username', username => {
+        document.getElementById('h1').innerHTML = username;
+    });
+
+    mp.events.add('gui.html/usernameLogin', username => {
         document.getElementById('h1').innerHTML = username;
     });
 

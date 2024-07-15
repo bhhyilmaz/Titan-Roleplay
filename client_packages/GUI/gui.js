@@ -5,5 +5,9 @@ mp.events.add('gui.js/browser', (state) => {
         mp.events.add('gui.js/username', (username) => {
             browser.call('gui.html/username', username);
         });
+
+        mp.events.add('gui.js/usernameLogin', (username) => {
+            browser.call('gui.html/usernameLogin', username);
+        });
     }
 });

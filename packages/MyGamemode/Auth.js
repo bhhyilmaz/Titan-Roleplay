@@ -32,7 +32,7 @@ mp.events.add('server:loginAccount', async (player, username, password) => {
     }
     
     if (info === true) player.spawn(new mp.Vector3(Pos.x, Pos.y, Pos.z));
-    player.call('client:loginCase', [info]);
+    player.call('client:loginCase', [info, username]);
   });
   } catch (error) {
     console.log(error);

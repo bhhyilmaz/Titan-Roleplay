@@ -24,11 +24,12 @@ mp.events.add('client:regCase', (info, username, password) => {
     }, 1);
 });
 
-mp.events.add('client:loginCase', (res) => {
-    if (res === true) {
+mp.events.add('client:loginCase', (info, username) => {
+    if (info === true) {
         mp.events.call("client:hideLoginScreen");
+        mp.events.call("gui.js/usernameLogin", username);
     } else {
-        browser.call('html:loginCase', res);
+        browser.call('html:loginCase', info);
     }
 });
 
