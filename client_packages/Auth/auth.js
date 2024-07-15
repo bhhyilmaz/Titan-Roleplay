@@ -1,5 +1,6 @@
 var browser = mp.browsers.new('package://Auth/login.html');
 var loginCam;
+var test = "test word test word test word test word test word test word test word";
 
 mp.events.add('client:loginData', (username, password) => {
     mp.events.callRemote("server:loginAccount", username, password);
@@ -53,7 +54,6 @@ mp.events.add('client:hideLoginScreen', () => {
     mp.gui.cursor.show(false, false);
     mp.game.ui.displayRadar(true);
     mp.events.call("client:disableLoginCamera");
-    mp.gui.chat.push('Merhaba Dunya');
 });
 
 mp.events.add('client:enableLoginCamera', () => {
