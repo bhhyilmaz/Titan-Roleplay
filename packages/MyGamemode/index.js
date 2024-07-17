@@ -1,5 +1,5 @@
 require('./Auth.js');
 require('./Commands.js');
-require('./GUI.js');
+require('./Log.js');
 
 // mp.players.reloadResources()

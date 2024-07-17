@@ -26,7 +26,11 @@ const userSchema = new Schema
         type: Number,
         default: 70
       }
-    }
+    },
+    log: [{ 
+      type: String,
+      default: "Log tanımlandı."
+    }]
   },
   {
      versionKey: false,

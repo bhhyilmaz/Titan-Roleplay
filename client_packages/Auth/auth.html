@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Lexend:wght@100..900&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+</head>
+
+<body style="margin:0px; display: grid;">
+  <div id="login"
+    style="box-shadow: 0 .1rem .3rem 0 rgba(0,0,0,1); display: flex; justify-content: center; background-color: rgba(0,0,0,.3); top: 10cap;">
+    <div style="display: flex;">
+      <div style="display: flex; flex-direction: column; justify-content: center;">
+        <a style="font-style: italic; display: none; color: rgb(110, 0, 0);" id="wg">Yanlış kullanıcı bilgileri.</a>
+        <a style="font-style: italic; display: none; color: rgb(4, 140, 16);" id="rdr">Başarıyla kayıt oldunuz.</a>
+      </div>
+      <form style="padding: 1rem; display: flex; align-items: center; gap: 0.5rem;">
+        <div style="display: flex; border-radius: 0.1rem; width: 12rem; height: 2.5rem;">
+          <input style="font-weight: 600; padding-left: 1rem;" placeholder="Kullanıcı Adı" type="text" id="username">
+        </div>
+        <div style="display: flex; border-radius: 0.1rem; width: 12rem; height: 2.5rem;">
+          <input style="font-weight: 600; padding-left: 1rem;" placeholder="Şifre" type="password" id="password">
+        </div>
+        <button id="mainButton" type="submit" onclick="sendLoginInfo(0);">GİRİŞ</button>
+        <a id="a1" onclick="showRegister(0);">KAYIT OL</a>
+      </form>
+    </div>
+  </div>
+
+  <div id="register"
+  style="box-shadow: 0 .1rem .3rem 0 rgba(0,0,0,1); display: none; justify-content: center; background-color: rgba(0,0,0,1); top: 10cap;">
+  <div style="display: flex;">
+    <div style="display: flex; flex-direction: column; justify-content: center;">
+      <a style="font-style: italic; display: none; color: rgb(110, 0, 0);" id="empty">Kullanıcı bilgileri boş
+        bırakılamaz.</a>
+        <a style="font-style: italic; display: none; color: rgb(110, 0, 0);" id="char">Kullanıcı adı uygunsuz karakter
+          içeriyor.</a>
+        <a style="font-style: italic; display: none; color: rgb(110, 0, 0);" id="already">Bu kullanıcı adı kullanılamaz.</a>      
+    </div>
+    <form style="padding: 1rem; display: flex; align-items: center; gap: 0.5rem;">
+      <div style="display: flex; border-radius: 0.1rem; width: 12rem; height: 2.5rem;">
+        <input style="font-weight: 600; padding-left: 1rem;" placeholder="Kullanıcı Adı" type="text" id="usernameReg">
+      </div>
+      <div style="display: flex; border-radius: 0.1rem; width: 12rem; height: 2.5rem;">
+        <input style="font-weight: 600; padding-left: 1rem;" placeholder="Şifre" type="password" id="passwordReg">
+      </div>
+      <button type="submit" onclick="sendRegInfo(0);">KAYIT</button>
+      <a id="a1" onclick="showLogin(0);">GİRİŞ YAP</a>
+    </form>
+  </div>
+</div>
+  <script src="./auth.html.js"></script>
+</body>
+
+</html>

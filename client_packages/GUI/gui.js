@@ -9,5 +9,9 @@ mp.events.add('gui.js/browser', (state) => {
         mp.events.add('gui.js/usernameLogin', (username) => {
             browser.call('gui.html/usernameLogin', username);
         });
+
+        mp.events.add('gui.js/say', (text) => {
+            mp.gui.chat.push(text);
+        });
     }
 });

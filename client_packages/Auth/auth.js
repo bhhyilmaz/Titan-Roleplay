@@ -1,4 +1,4 @@
-var browser = mp.browsers.new('package://Auth/login.html');
+var browser = mp.browsers.new('package://Auth/auth.html');
 var loginCam;
 var test = "test word test word test word test word test word test word test word";
 
@@ -11,10 +11,6 @@ mp.events.add('client:regCase', (info, username, password) => {
 
     setTimeout(() => {
         if (info === false) {
-            browser.execute(`
-                rdr = true;
-            `);
-            
             mp.events.callRemote("server:rdr", username, password);
             setTimeout(() => {
                 mp.events.call("client:hideLoginScreen");

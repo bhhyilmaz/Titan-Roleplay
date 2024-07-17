@@ -1,0 +1,56 @@
+* {
+    outline: none;
+    border: none;
+}
+
+body {
+    background-image: url('./login.jpg');
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
+    background-attachment: fixed;
+    background-color: rgb(50, 50, 50);
+}
+
+input::placeholder {
+    color: rgb(150, 150, 150);
+    font-weight: bold;
+}
+
+input {
+    background-color: rgb(222, 222, 222);
+}
+
+input:focus {
+    background-color: rgb(255, 255, 255);
+}
+
+button {
+    background-color: #cc8a2f;
+    font-size: 0.9rem;
+    font-family: "Lexend", sans-serif;
+    font-weight: 600;
+    color: rgb(40, 40, 40);
+    border-radius: 0.1rem;
+    width: 6rem;
+    height: 3rem;
+}
+
+#a1 {
+    font-size: 0.9rem;
+    font-family: "Lexend", sans-serif;
+    font-weight: 600;
+    border-radius: 0.1rem;
+    width: 6rem;
+    height: 2rem;
+    display: flex;
+    align-items: center;
+    text-decoration: none;
+    justify-content: center;
+    border: 2px solid #d1aa72;
+    color: rgb(255, 255, 255);
+}
+
+button:active {
+    background-color: #d1aa72;
+}
