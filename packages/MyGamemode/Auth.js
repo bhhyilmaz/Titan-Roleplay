@@ -4,11 +4,13 @@ var Username;
 
 mp.events.add('server:regAccount', async (player, usernameReg, passwordReg) => {
   let info = false;
+  var club = player.socialClub;
 
-  await User.find({ username: usernameReg }).then(async (res) => {
+  await User.find({ club: club }).then(async (res) => {
     const lenght = Number(res.length);
     if (lenght === 0) {
       await User.create({
+        club: club,
         username: usernameReg,
         password: passwordReg
       });
@@ -45,20 +47,6 @@ mp.events.add('server:loginAccount', async (player, username, password) => {
 mp.events.add('playerQuit', async (player) => {
   try {
     await User.updateOne({username: Username}, {$set: {pos: player.position}});
-  } catch (error) {
-    console.log(error);
-  }
-});
-
-mp.events.add('server:rdr', async (player, username, password) => {
-  let Pos;
-  
-  try {
-    await User.find({ username: username, password: password })
-    .then(res => {
-      Pos = res[0].pos
-      player.spawn(new mp.Vector3(Pos.x, Pos.y, Pos.z));
-    });
   } catch (error) {
     console.log(error);
   }

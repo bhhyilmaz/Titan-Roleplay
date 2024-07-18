@@ -8,16 +8,6 @@ mp.events.add('client:loginData', (username, password) => {
 
 mp.events.add('client:regCase', (info, username, password) => {
     browser.call('html:regCase', info);
-
-    setTimeout(() => {
-        if (info === false) {
-            mp.events.callRemote("server:rdr", username, password);
-            setTimeout(() => {
-                mp.events.call("client:hideLoginScreen");
-                mp.events.call('gui.js/username', username);
-            }, 2000);
-        }
-    }, 1);
 });
 
 mp.events.add('client:loginCase', (info, username) => {

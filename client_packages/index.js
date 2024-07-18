@@ -1,5 +1,6 @@
 require('./Auth/auth.js');
 require('./GUI/gui.js');
+require('./Log/log.js');
 
 mp.events.add('playerReady', () => {
   mp.events.call('client:showLoginScreen');

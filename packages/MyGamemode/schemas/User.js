@@ -7,6 +7,7 @@ mongoose.connect('mongodb+srv://blaine:123659@ragemp.tk5xboo.mongodb.net/MyRageD
 const userSchema = new Schema
 (
   {
+    club: String,
     username: String,
     password: String,
     created_at: {

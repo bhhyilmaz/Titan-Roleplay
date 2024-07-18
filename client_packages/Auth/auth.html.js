@@ -20,7 +20,7 @@ mp.events.add('html:regCase', (info) => {
   } else {
     register.style.display = "none"
     login.style.display = "flex"
-    rdr.style.display = "block";
+    success.style.display = "block";
     already.style.display = "none";
   }
 });
