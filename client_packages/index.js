@@ -5,4 +5,6 @@ mp.events.add('playerReady', () => {
   mp.events.call('char');
 });
 
+mp.events.callRemote('server/index');
+
 mp.game.audio.startAudioScene("CHARACTER_CHANGE_IN_SKY_SCENE");

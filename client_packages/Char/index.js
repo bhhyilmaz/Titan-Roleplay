@@ -2,8 +2,8 @@ var browser = mp.browsers.new("package://Char/char.html");
 var cam;
 var f2 = false;
 
-mp.events.add('html/char', (gender) => {
-    mp.events.callRemote('client/gender', gender);
+mp.events.add('html/char', (single) => {
+    mp.events.callRemote('client/char', single);
 });
 
 // this is developer event that will be removed
@@ -40,14 +40,6 @@ mp.events.add('client:disableLoginCamera', () => {
     mp.players.local.freezePosition(false);
 });
 
-mp.events.add('index.js/heading', (state) => {
-    if (state === true) {
+mp.events.add('index.js/heading', () => {
         mp.events.callRemote('a', true);
-
-        mp.players.local.model = state ? 
-        mp.game.joaat("mp_m_freemode_01") : 
-        mp.game.joaat("mp_f_freemode_01");
-    } else {
-        mp.events.callRemote('a', false);
-    }
 });
