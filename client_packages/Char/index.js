@@ -1,5 +1,11 @@
-var browser = mp.browsers.new('package://Char/char.html');
+var browser = mp.browsers.new("package://Char/char.html");
 var cam;
+var f2 = false;
+
+mp.events.add('f2', ()  => {
+    browser.destroy();
+    mp.events.callRemote('f2');
+});
 
 mp.events.add('char', () => {
     mp.events.call('cam');

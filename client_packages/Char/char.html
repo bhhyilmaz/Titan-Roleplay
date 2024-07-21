@@ -1,10 +1,24 @@
 <!DOCTYPE html>
 
-<body>
+<body style="margin:0px; display: grid;">
+    <div style="display: flex; flex-direction: column;">
+        <button>buton</button>
+        <button>buton</button>
+        <button>buton</button>
+        <button>buton</button>
+        <button>buton</button>
+        <button>buton</button>
+        <button>buton</button>
+        <button>buton</button>
+        <button>buton</button>
+        <button>buton</button>
+        <button>buton</button>
+        <button>buton</button>
+        <input id="myRange" type="range" min="1" max="10" value="1"/>
+    </div>
     <div style="display: flex; justify-content: center; margin-top: 3rem; gap: .5rem;">
         <button id="left" onclick="Left();" style="width: 3rem; height: 5rem;">SOL</button>
         <button id="right" onclick="Right();" style="width: 3rem; height: 5rem;">SAĞ</button>
-        <input id="myRange" type="range" min="1" max="10" value="1"/>
     </div>
 
     <script>
@@ -15,11 +29,14 @@
         function Right () {
             mp.trigger('index.js/heading', true);
         }
-        // Char
+
+        //
+        let rangeInput = document.getElementById('myRange');
+
         function logValues() {
-            const value = parseInt(document.getElementById('myRange').value);
+            const value = parseInt(rangeInput.value);
             console.clear();
-            for (let i = 1; i <= value; i+0.1) {
+            for (let i = 1; i <= value; i++) {
                 console.log(i);
             }
         }
