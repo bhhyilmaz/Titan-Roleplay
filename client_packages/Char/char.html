@@ -1,47 +1,67 @@
 <!DOCTYPE html>
 
 <body style="margin:0px; display: grid;">
-    <div style="display: flex; flex-direction: column;">
-        <button>buton</button>
-        <button>buton</button>
-        <button>buton</button>
-        <button>buton</button>
-        <button>buton</button>
-        <button>buton</button>
-        <button>buton</button>
-        <button>buton</button>
-        <button>buton</button>
-        <button>buton</button>
-        <button>buton</button>
-        <button>buton</button>
-        <input id="myRange" type="range" min="1" max="10" value="1"/>
+    <div style="display: flex;">
+        <div
+            style="width: max-content; background-color: rgba(1, 0, 0, .5); padding: 1rem; gap: .5rem; display: flex; flex-direction: column;">
+            <button onclick="Page1()">buton</button>
+            <button onclick="Page2()">buton</button>
+        </div>
+        <div id="page1"
+            style="width: max-content; background-color: rgba(1, 0, 0, .5); padding: 1rem; gap: .5rem; display: none; flex-direction: column;">
+            <div style="display: flex;">
+                Cinsiyet
+                <input id="gender" type="range" min="1" max="2" value="1" />
+            </div>
+            <div style="display: flex;">
+                Özellik
+                <input id="myRange" type="range" min="1" max="10" value="1" />
+            </div>
+        </div>
+        <div id="page2"
+            style="width: max-content; background-color: rgba(1, 0, 0, .5); padding: 1rem; gap: .5rem; display: none; flex-direction: column;">
+            <div style="display: flex;">
+                Özellik222
+                <input id="myRange" type="range" min="1" max="10" value="1" />
+            </div>
+            <div style="display: flex;">
+                Özellik222
+                <input id="myRange" type="range" min="1" max="10" value="1" />
+            </div>
+        </div>
     </div>
     <div style="display: flex; justify-content: center; margin-top: 3rem; gap: .5rem;">
-        <button id="left" onclick="Left();" style="width: 3rem; height: 5rem;">SOL</button>
-        <button id="right" onclick="Right();" style="width: 3rem; height: 5rem;">SAĞ</button>
+        <button id="rotate" onclick="Rotate();" style="width: 3rem; height: 5rem;">DÖNDÜR</button>
     </div>
 
     <script>
-        function Left () {
-            mp.trigger('index.js/heading', true);
+        const input0 = document.getElementById('gender');
+        let gender = true;
+        let char;
+
+        input0.addEventListener('input', function() {
+        const value0 = parseInt(input0.value);
+        for (let i = 1; i <= value0; i++)
+        switch (i) {
+            case 2: gender = false; break;
+            default: gender = true; break;
         }
 
-        function Right () {
-            mp.trigger('index.js/heading', true);
+        cosnole.log(gender) // output: boolean
+    });
+
+        function Page1() {
+            page1.style.display = "flex";
+            page2.style.display = "none";
+        }
+        function Page2() {
+            page2.style.display = "flex";
+            page1.style.display = "none";
         }
 
-        //
-        let rangeInput = document.getElementById('myRange');
-
-        function logValues() {
-            const value = parseInt(rangeInput.value);
-            console.clear();
-            for (let i = 1; i <= value; i++) {
-                console.log(i);
-            }
+        function Rotate() {
+            mp.trigger('index.js/heading');
         }
-        logValues();
-        rangeInput.addEventListener('input', logValues);
     </script>
 </body>
 

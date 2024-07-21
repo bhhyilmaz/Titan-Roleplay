@@ -2,6 +2,11 @@ var browser = mp.browsers.new("package://Char/char.html");
 var cam;
 var f2 = false;
 
+mp.events.add('html/char', (gender) => {
+    mp.events.callRemote('client/gender', gender);
+});
+
+// this is developer event that will be removed
 mp.events.add('f2', ()  => {
     browser.destroy();
     mp.events.callRemote('f2');

@@ -1,9 +1,9 @@
-mp.events.add('a', (player, state) => {
-    if (state === true) {
-        player.heading -= 40;
-    } else {
-        player.heading += 40;
-    }
+mp.events.add('a', (player) => {
+    player.heading += 90;
+});
+
+mp.events.add('char/gender', (player, gender) => {
+    console.log(gender);
 });
 
 mp.events.add('char', () => {
