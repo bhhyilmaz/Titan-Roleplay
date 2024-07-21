@@ -14,8 +14,8 @@
                 <input id="gender" type="range" min="1" max="2" value="1" />
             </div>
             <div style="display: flex;">
-                Özellik
-                <input id="myRange" type="range" min="1" max="10" value="1" />
+                Anne Yüzdesi
+                <input id="mother_ratio" type="range" min="0" max="100" value="0" />
             </div>
         </div>
         <div id="page2"
@@ -34,21 +34,46 @@
         <button id="rotate" onclick="Rotate();" style="width: 3rem; height: 5rem;">DÖNDÜR</button>
     </div>
 
+    <!-- 
+    bGender, MotherBlend, FatherBlend, 0, MotherBlend, FatherBlend, 0, fBlendShape, fBlendSkin, 0, 1, HairColour, HairHighlight, 
+	[
+		NoseWidth, NoseHeight, NoseLength, NoseBridge, NoseTip, NoseBridgeShift, 
+		BrowHeight, BrowWidth, CBoneHeight, CBoneWidth, CheekWidth, Eyes, Lips,
+		JawWidth, jawHeight, ChinLength, ChinPos, ChinWidth, ChinShape, NeckWidth
+	] 
+    -->
+
     <script>
         const input0 = document.getElementById('gender');
-        let gender = true;
-        let char;
-
+        const input1 = document.getElementById('mother_ratio');
+        let char = [
+            {
+                "gender": "false",
+                "mother_ratio": "0"
+            }
+        ]
+    
         input0.addEventListener('input', function() {
-        const value0 = parseInt(input0.value);
-        for (let i = 1; i <= value0; i++)
+        const value = parseInt(input0.value);
+        for (let i = 1; i <= value; i++)
         switch (i) {
-            case 2: gender = false; break;
-            default: gender = true; break;
+            case 2: char[0].gender = "false"; break;
+            default: char[0].gender = "true"; break;
         }
 
-        cosnole.log(gender) // output: boolean
-    });
+        sendChar();
+        });
+        input1.addEventListener('input', function() {
+        const value = parseInt(input1.value);
+        char[0].mother_ratio = value;
+
+        sendChar();
+        });
+
+        function sendChar() {
+            let resultString = `${char[0].gender}, ${char[0].mother_ratio}`;
+            console.log(resultString)
+        }
 
         function Page1() {
             page1.style.display = "flex";
