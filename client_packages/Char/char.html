@@ -1,6 +1,17 @@
 <!DOCTYPE html>
 
 <body style="margin:0px; display: grid;">
+    <style>
+       a {
+        font-size: 2rem;
+        color: white;
+        display: flex;
+       }
+       input {
+        display: flex;
+        margin-left: 2rem;
+       }
+    </style>
     <div style="display: flex;">
         <div
             style="width: max-content; background-color: rgba(1, 0, 0, .5); padding: 1rem; gap: .5rem; display: flex; flex-direction: column;">
@@ -9,36 +20,36 @@
         </div>
         <div id="page1"
             style="width: max-content; background-color: rgba(1, 0, 0, .5); padding: 1rem; gap: .5rem; display: none; flex-direction: column;">
-            <div style="display: flex;">
-                Cinsiyet
+            <div style="display: flex; gap: 2rem;">
+                <a id="text0">Cinsiyet</a>
                 <input id="gender" type="range" min="1" max="2" value="1" />
             </div>
             <div style="display: flex;">
-                Anne Yüzdesi
-                <input id="mother_ratio" type="range" min="0" max="100" value="0" />
+                <a id="text1">DNA</a>
+                <input id="mother_ratio" type="range" min="0" max="45" value="0" />
             </div>
             <div style="display: flex;">
-                Baba Yüzdesi
-                <input id="fether_ratio" type="range" min="0" max="100" value="0" />
+                <a id="text2">DNA</a>
+                <input id="fether_ratio" type="range" min="0" max="45" value="0" />
             </div>
             <div style="display: flex;">
-                Şekil
-                <input id="shape" type="range" min="0" max="100" value="0" />
+                <a id="text3">YÜZ DNA</a>
+                <input id="shape" type="range" min="0" max="1" value="0" />
             </div>
             <div style="display: flex;">
-                Ten Rengi
-                <input id="skin" type="range" min="0" max="100" value="0" />
+                <a id="text4">CİLT DNA</a>
+                <input id="skin" type="range" min="0" max="1" value="0" />
             </div>
             <div style="display: flex;">
-                Göz Rengi
-                <input id="eye" type="range" min="0" max="100" value="0" />
+                <a id="text5">GÖZ RENGİ</a>
+                <input id="eye" type="range" min="0" max="30" value="0" />
             </div>
             <div style="display: flex;">
-                Saç Rengi
+                <a id="text6">Saç Rengi</a>
                 <input id="hair" type="range" min="0" max="100" value="0" />
             </div>
             <div style="display: flex;">
-                Saç Röflesi
+                <a id="text7">Saç Röflesi</a>
                 <input id="hair2" type="range" min="0" max="100" value="0" />
             </div>
         </div>
