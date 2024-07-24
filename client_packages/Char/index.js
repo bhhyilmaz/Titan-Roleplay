@@ -10,6 +10,16 @@ mp.events.add('html/char', (single) => {
 mp.events.add('f2', ()  => {
     browser.destroy();
     mp.events.callRemote('f2');
+
+    mp.game.cam.renderScriptCams(false, false, 0, false, false);
+    mp.players.local.freezePosition(false);
+    mp.game.time.setClockTime(12, 00, 00);
+    mp.game.time.pauseClock(true);
+    mp.game.ui.setMinimapVisible(true);
+    mp.gui.chat.activate(true);
+    mp.gui.chat.show(true);
+    mp.gui.cursor.show(true, true);
+    mp.game.ui.displayRadar(true);
 });
 
 mp.events.add('char', () => {

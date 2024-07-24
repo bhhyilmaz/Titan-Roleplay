@@ -25,23 +25,15 @@
                 <input id="gender" type="range" min="1" max="2" value="1" />
             </div>
             <div style="display: flex;">
-                <a id="text1">DNA</a>
+                <a id="text1">Yüz Tipi</a>
                 <input id="mother_ratio" type="range" min="0" max="45" value="0" />
             </div>
             <div style="display: flex;">
-                <a id="text2">DNA</a>
+                <a id="text2">Ten Rengi</a>
                 <input id="fether_ratio" type="range" min="0" max="45" value="0" />
             </div>
             <div style="display: flex;">
-                <a id="text3">YÜZ DNA</a>
-                <input id="shape" type="range" min="0" max="1" value="0" />
-            </div>
-            <div style="display: flex;">
-                <a id="text4">CİLT DNA</a>
-                <input id="skin" type="range" min="0" max="1" value="0" />
-            </div>
-            <div style="display: flex;">
-                <a id="text5">GÖZ RENGİ</a>
+                <a id="text5">Göz Rengi</a>
                 <input id="eye" type="range" min="0" max="30" value="0" />
             </div>
             <div style="display: flex;">
@@ -65,7 +57,7 @@
             </div>
         </div>
     </div>
-    <div style="display: flex; justify-content: center; margin-top: 3rem; gap: .5rem;">
+    <div style="display: flex; justify-content: center; margin-top: 3rem; margin-left: 12rem; gap: .5rem;">
         <button id="rotate" onclick="Rotate();" style="width: 3rem; height: 5rem;">DÖNDÜR</button>
     </div>
 
@@ -82,8 +74,6 @@
         const input0 = document.getElementById('gender');
         const input1 = document.getElementById('mother_ratio');
         const input2 = document.getElementById('fether_ratio');
-        const input3 = document.getElementById('shape');
-        const input4 = document.getElementById('skin');
         const input5 = document.getElementById('eye');
         const input6 = document.getElementById('hair');
         const input7 = document.getElementById('hair2');
@@ -119,16 +109,6 @@
         char[0].father_ratio = value;
         sendChar();
         });
-        input3.addEventListener('input', function() {
-        const value = parseInt(input3.value);
-        char[0].shape = value;
-        sendChar();
-        });
-        input4.addEventListener('input', function() {
-        const value = parseInt(input4.value);
-        char[0].skin = value;
-        sendChar();
-        });
         input5.addEventListener('input', function() {
         const value = parseInt(input5.value);
         char[0].eye = value;
@@ -147,7 +127,7 @@
 
         function sendChar() {
             let c = char[0];
-            let single = `${c.gender}, ${c.mother_ratio}, ${c.father_ratio}, 0, ${c.mother_ratio}, ${c.father_ratio}, 0, ${c.shape}, ${c.skin}, 0, ${c.eye}, ${c.hair}, ${c.hair2}`;
+            let single = `${c.gender}, ${c.mother_ratio}, ${c.father_ratio}, 0, ${c.mother_ratio}, ${c.father_ratio}, 0, 0, 100, 0, ${c.eye}, ${c.hair}, ${c.hair2}`;
             mp.trigger('html/char', single);
         }
 
