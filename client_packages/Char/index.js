@@ -2,6 +2,8 @@ var browser = mp.browsers.new("package://Char/char.html");
 var cam;
 var f2 = false;
 
+mp.events.callRemote('playAnimation::server');
+
 mp.events.add('html/char', (single) => {
     mp.events.callRemote('client/char', single);
 });
