@@ -3,8 +3,10 @@
 	"name" : "RAGE:MP Unofficial server", 
 	"gamemode" : "freeroam", 
 	"stream-distance" : 300.0,
+	"voice-chat": false,
 	"announce" : false,
 	"csharp" : "disabled",
 	"port": 22005,
-	"allow-cef-debugging": true
+	"allow-cef-debugging": true,
+	"server-side-weapons-only-mode" : true
 }
