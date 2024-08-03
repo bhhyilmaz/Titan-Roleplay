@@ -22,11 +22,13 @@
             style="width: max-content; background-color: rgba(1, 0, 0, .5); padding: 1rem; gap: .5rem; display: none; flex-direction: column;">
             <div style="display: flex; gap: 2rem;">
                 <a id="text0">Cinsiyet</a>
-                <input id="gender" type="range" min="1" max="2" value="1" />
+                <input id="gender" type="range" min="1" max="2" value="1"/>
             </div>
             <div style="display: flex;">
                 <a id="text1">Yüz Tipi</a>
-                <input id="mother_ratio" type="range" min="0" max="45" value="0" />
+                <a id="labelDbg">?</a>
+                <button onclick="mother_ratio0()">Geri</button>
+                <button onclick="mother_ratio1()">Ileri</button>
             </div>
             <div style="display: flex;">
                 <a id="text2">Ten Rengi</a>
@@ -36,14 +38,6 @@
                 <a id="text5">Göz Rengi</a>
                 <input id="eye" type="range" min="0" max="8" value="0" />
             </div>
-            <!-- <div style="display: flex;">
-                <a id="text6">Saç Rengi</a>
-                <input id="hair" type="range" min="0" max="100" value="0" />
-            </div>
-            <div style="display: flex;">
-                <a id="text7">Saç Röflesi</a>
-                <input id="hair2" type="range" min="0" max="100" value="0" />
-            </div> -->
         </div>
         <div id="page2"
             style="width: max-content; background-color: rgba(1, 0, 0, .5); padding: 1rem; gap: .5rem; display: none; flex-direction: column; color: white; font-size: 1rem;">
@@ -131,7 +125,6 @@
 
     <script>
         const input0 = document.getElementById('gender');
-        const input1 = document.getElementById('mother_ratio');
         const input2 = document.getElementById('fether_ratio');
         const input5 = document.getElementById('eye');
         const ff0 = document.getElementById('ff0');
@@ -185,6 +178,38 @@
                 "ff19": "0.0"
             }
         ]
+
+        const mr = document.getElementById('mother_ratio');
+        const ldbg = document.getElementById('labelDbg');
+        let val = 0;
+
+        //////////Create a custom event (learn detailed soon)/////////////////////////
+        const change_event = new CustomEvent('valueChanged', { detail: { value: val } });
+
+        // Function to update the value and dispatch the event
+        function updateValue(value) {
+            val = value;
+
+            // Dispatch the custom event whenever the value changes
+            change_event.detail.value = val; // Update the event detail with the new value
+            window.dispatchEvent(change_event);
+        }
+
+        function mother_ratio0() {
+            updateValue(val - 1); // Decrease the value
+        }
+
+        function mother_ratio1() {
+            updateValue(val + 1); // Increase the value
+        }
+
+        // Add an event listener for the custom event
+        window.addEventListener('valueChanged', function(event) {
+            const value = event.detail.value
+            char[0].mother_ratio = value;
+            sendChar();
+        });
+        ////////////////////////////////////////////////////////////////////////
     
         input0.addEventListener('input', function() {
         const value = parseInt(input0.value);
@@ -193,11 +218,6 @@
             case 2: char[0].gender = "false"; break;
             default: char[0].gender = "true"; break;
         }
-        sendChar();
-        });
-        input1.addEventListener('input', function() {
-        const value = parseInt(input1.value);
-        char[0].mother_ratio = value;
         sendChar();
         });
         input2.addEventListener('input', function() {
@@ -310,7 +330,6 @@
             let c = char[0];
             let single = `${c.gender}, ${c.mother_ratio}, ${c.father_ratio}, 0, ${c.mother_ratio}, ${c.father_ratio}, 0, 0, 100, 0, ${c.eye}, ${c.hair}, ${c.hair2}, ${c.ff0}, ${c.ff1}, ${c.ff2}, ${c.ff3}, ${c.ff4}, ${c.ff6}, ${c.ff7}, ${c.ff8}, ${c.ff9}, ${c.ff10}, ${c.ff11}, ${c.ff12}, ${c.ff13}, ${c.ff14}, ${c.ff15}, ${c.ff16}, ${c.ff17}, ${c.ff18}, ${c.ff19}`;
             mp.trigger('html/char', single);
-            console.log(single)
         }
 
         function Page1() {
