@@ -26,12 +26,10 @@
             </div>
             <div style="display: flex;">
                 <a id="text1">Yüz Tipi</a>
-                <a id="labelDbg">?</a>
-                <button onclick="mother_ratio0()">Geri</button>
-                <button onclick="mother_ratio1()">Ileri</button>
+                <input id="mother_ratio" type="range" min="0" max="45" value="0" />
             </div>
             <div style="display: flex;">
-                <a id="text2">Ten Rengi</a>
+                <a id="text2">Cilt</a>
                 <input id="fether_ratio" type="range" min="0" max="45" value="0" />
             </div>
             <div style="display: flex;">
@@ -102,7 +100,7 @@
                 <input id="ff15" type="range" min="-1.0" max="1.0" value="0.0" step="0.01" />
             </div>
             <div style="display: flex;">
-                Çene konumu
+                Çene yüksekliği
                 <input id="ff16" type="range" min="-1.0" max="1.0" value="0.0" step="0.01" />
             </div>
             <div style="display: flex;">
@@ -125,6 +123,7 @@
 
     <script>
         const input0 = document.getElementById('gender');
+        const input1 = document.getElementById('mother_ratio');
         const input2 = document.getElementById('fether_ratio');
         const input5 = document.getElementById('eye');
         const ff0 = document.getElementById('ff0');
@@ -179,38 +178,6 @@
             }
         ]
 
-        const mr = document.getElementById('mother_ratio');
-        const ldbg = document.getElementById('labelDbg');
-        let val = 0;
-
-        //////////Create a custom event (learn detailed soon)/////////////////////////
-        const change_event = new CustomEvent('valueChanged', { detail: { value: val } });
-
-        // Function to update the value and dispatch the event
-        function updateValue(value) {
-            val = value;
-
-            // Dispatch the custom event whenever the value changes
-            change_event.detail.value = val; // Update the event detail with the new value
-            window.dispatchEvent(change_event);
-        }
-
-        function mother_ratio0() {
-            updateValue(val - 1); // Decrease the value
-        }
-
-        function mother_ratio1() {
-            updateValue(val + 1); // Increase the value
-        }
-
-        // Add an event listener for the custom event
-        window.addEventListener('valueChanged', function(event) {
-            const value = event.detail.value
-            char[0].mother_ratio = value;
-            sendChar();
-        });
-        ////////////////////////////////////////////////////////////////////////
-    
         input0.addEventListener('input', function() {
         const value = parseInt(input0.value);
         for (let i = 1; i <= value; i++)
@@ -218,6 +185,11 @@
             case 2: char[0].gender = "false"; break;
             default: char[0].gender = "true"; break;
         }
+        sendChar();
+        });
+        input1.addEventListener('input', function() {
+        const value = parseInt(input1.value);
+        char[0].mother_ratio = value;
         sendChar();
         });
         input2.addEventListener('input', function() {

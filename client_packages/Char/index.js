@@ -41,7 +41,7 @@ mp.events.add('char', () => {
 });
 
 
-var cam_x = -90.04780578613281;
+var cam_x = -90.5237045288086;
 var cam_y = -1777.1153564453125;
 var cam_z = 29.568950653076172;
 
@@ -56,11 +56,10 @@ mp.events.add('cam', () => {
     cam = mp.cameras.new('default', new mp.Vector3(0, 0, 0), new mp.Vector3(0, 0, 0), 
     40);
     mp.players.local.position = new mp.Vector3(-89.46919250488281, -1777.118896484375, 28.99894142150879);
-    cam.setCoord(-90.04540252685547, -1776.9083251953125, 29.700000762939453);
     cam.pointAtCoord(-89.46919250488281, -1777.118896484375, 29.7)
     cam.setActive(true);
     mp.game.cam.renderScriptCams(true, false, 0, true, false);
-    mp.players.local.freezePosition(true);
+    mp.players.local.freezePosition(false);
 });
 
 var state0 = false;
