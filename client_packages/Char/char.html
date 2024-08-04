@@ -36,6 +36,11 @@
                 <a id="text5">Göz Rengi</a>
                 <input id="eye" type="range" min="0" max="8" value="0" />
             </div>
+            <div style="display: flex;">
+                <a id="text6">Kafa</a>
+                <a id="text6dbg">??</a>
+                <input id="head" type="range" min="0" max="100" value="0" />
+            </div>
         </div>
         <div id="page2"
             style="width: max-content; background-color: rgba(1, 0, 0, .5); padding: 1rem; gap: .5rem; display: none; flex-direction: column; color: white; font-size: 1rem;">
@@ -126,6 +131,7 @@
         const input1 = document.getElementById('mother_ratio');
         const input2 = document.getElementById('fether_ratio');
         const input5 = document.getElementById('eye');
+        const input6 = document.getElementById('head');
         const ff0 = document.getElementById('ff0');
         const ff1 = document.getElementById('ff1');
         const ff2 = document.getElementById('ff2');
@@ -201,6 +207,10 @@
         const value = parseInt(input5.value);
         char[0].eye = value;
         sendChar();
+        });
+        input6.addEventListener('input', function() {
+        const value = input6.value;
+        mp.events.call('html/head_value', value);
         });
         ff0.addEventListener('input', function() {
         const value = ff0.value;

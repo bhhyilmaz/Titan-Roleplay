@@ -115,3 +115,7 @@ mp.events.add('client:disableLoginCamera', () => {
 mp.events.add('index.js/heading', () => {
     mp.events.callRemote('a', true);
 });
+
+mp.events.add('html/head_value', (value) => {
+    mp.players.local.setComponentVariation(2, Number(value), 0, 0);
+});

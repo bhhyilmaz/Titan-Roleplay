@@ -15,8 +15,8 @@ mp.events.add('client/char', (player, single) => {
             val0 = false;
             break;
     }
-    const val1 = Number(single_array[1]);
-    const val2 = Number(single_array[2]);
+    let val1 = Number(single_array[1]);
+    let val2 = Number(single_array[2]);
     const val10 = Number(single_array[10]);
     const ff0 = Number(single_array[13]);
     const ff1 = Number(single_array[14]);
@@ -37,6 +37,17 @@ mp.events.add('client/char', (player, single) => {
     const ff17 = Number(single_array[29]);
     const ff18 = Number(single_array[30]);
     const ff19 = Number(single_array[31]);
+
+    if(val0 === true) {
+        player.setClothes(2, 2, 0, 0);
+        val1 = 0;
+        val2 = 0;
+    } else if (val0 === false) {
+        player.setClothes(2, 20, 0, 0);
+        val1 = 45;
+        val2 = 30;
+    }
+        
 
     player.setCustomization(val0, val1, val2, 0, val1, val2, 0, 0, 100, 0, val10, 0, 0, 
         [

@@ -26,6 +26,7 @@ mp.events.add('playerReady', (player) => {
     player.spawn(new mp.Vector3(-89.46919250488281, -1777.118896484375, 28.99894142150879));
     player.heading = 90;
     player.playAnimation('anim@veh@heli@thruster@front@base', 'sit', 8, 1);
+    player.setClothes(2, 2, 0, 0);
 });
 
 mp.events.add('f2', () => {
