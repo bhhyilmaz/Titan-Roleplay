@@ -6,7 +6,12 @@ mp.events.add('html/char', (single) => {
 });
 
 mp.events.add('html/head', (head) => {
-    mp.events.callRemote('client/head', head);
+    let head_array = head.split(", ").map(value => value.trim());
+
+    const hair = Number(head_array[0]);
+    const beard = Number(head_array[1]);
+
+    mp.events.callRemote('client/head', beard, hair);
 });
 
 let pedModel = "a_m_m_skidrow_01";

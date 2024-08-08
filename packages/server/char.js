@@ -2,13 +2,10 @@ mp.events.add('a', (player) => {
     player.heading += 90;
 });
 
-mp.events.add('client/head', (player, head) => {
-    let head_array = head.split(", ").map(value => value.trim());
-
-    const hair = Number(head_array[0]);
-    const beard = Number(head_array[1]);
-
-    console.log(hair + " " + beard);
+mp.events.add('client/head', (player, beard, hair) => {
+   player.setHeadOverlay(1, [beard, 1, 0, 0]);
+   player.setHeadOverlayColor(1, [0, hair, hair]);
+   player.setClothes(2, hair, 0, 0);
 });
 
 mp.events.add('client/char', (player, single) => {
@@ -26,6 +23,8 @@ mp.events.add('client/char', (player, single) => {
     let val1 = Number(single_array[1]);
     let val2 = Number(single_array[2]);
     const val10 = Number(single_array[10]);
+    const val11 = Number(single_array[11]);
+    const val12 = Number(single_array[12]);
     const ff0 = Number(single_array[13]);
     const ff1 = Number(single_array[14]);
     const ff2 = Number(single_array[15]);
@@ -45,9 +44,10 @@ mp.events.add('client/char', (player, single) => {
     const ff17 = Number(single_array[29]);
     const ff18 = Number(single_array[30]);
     const ff19 = Number(single_array[31]);
-        
 
-    player.setCustomization(val0, val1, val2, 0, val1, val2, 0, 0, 100, 0, val10, 0, 0, 
+
+
+    player.setCustomization(val0, val1, val2, 0, val1, val2, 0, 0, 100, 0, val10, val11, val12, 
         [
             ff0, ff1, ff2, ff3, ff4,
             0.0, ff6, ff7, ff8, ff9,
@@ -56,5 +56,5 @@ mp.events.add('client/char', (player, single) => {
         ]
     );
 
-    player.playAnimation('anim@veh@heli@thruster@front@base', 'sit', 8, 1);
+    // player.playAnimation('anim@veh@heli@thruster@front@base', 'sit', 8, 1);
 });
