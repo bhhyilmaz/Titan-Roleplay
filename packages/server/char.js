@@ -2,6 +2,14 @@ mp.events.add('a', (player) => {
     player.heading += 90;
 });
 
+mp.events.add('client/head', (player, head) => {
+    let head_array = head.split(", ").map(value => value.trim());
+
+    const hair = Number(head_array[0]);
+    const beard = Number(head_array[1]);
+
+    console.log(hair + " " + beard);
+});
 
 mp.events.add('client/char', (player, single) => {
     let single_array = single.split(", ").map(value => value.trim());
@@ -37,16 +45,6 @@ mp.events.add('client/char', (player, single) => {
     const ff17 = Number(single_array[29]);
     const ff18 = Number(single_array[30]);
     const ff19 = Number(single_array[31]);
-
-    if(val0 === true) {
-        player.setClothes(2, 2, 0, 0);
-        val1 = 0;
-        val2 = 0;
-    } else if (val0 === false) {
-        player.setClothes(2, 20, 0, 0);
-        val1 = 45;
-        val2 = 30;
-    }
         
 
     player.setCustomization(val0, val1, val2, 0, val1, val2, 0, 0, 100, 0, val10, 0, 0, 

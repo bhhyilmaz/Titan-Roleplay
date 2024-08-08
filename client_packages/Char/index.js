@@ -5,6 +5,10 @@ mp.events.add('html/char', (single) => {
     mp.events.callRemote('client/char', single);
 });
 
+mp.events.add('html/head', (head) => {
+    mp.events.callRemote('client/head', head);
+});
+
 let pedModel = "a_m_m_skidrow_01";
 let spawnPosition = new mp.Vector3(-91, -1777.1153564453125, 29.568950653076172);
 

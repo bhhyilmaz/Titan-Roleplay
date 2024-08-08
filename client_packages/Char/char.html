@@ -19,7 +19,7 @@
             <button onclick="Page2()">buton</button>
         </div>
         <div id="page1"
-            style="width: max-content; background-color: rgba(1, 0, 0, .5); padding: 1rem; gap: .5rem; display: none; flex-direction: column;">
+            style="width: max-content; background-color: rgba(1, 0, 0, .5); padding: 1rem; gap: .5rem; display: flex; flex-direction: column;">
             <div style="display: flex; gap: 2rem;">
                 <a id="text0">Cinsiyet</a>
                 <input id="gender" type="range" min="1" max="2" value="1"/>
@@ -36,10 +36,16 @@
                 <a id="text5">Göz Rengi</a>
                 <input id="eye" type="range" min="0" max="8" value="0" />
             </div>
+        </div>
+        <div id="page1"
+            style="width: max-content; background-color: rgba(1, 0, 0, .5); padding: 1rem; gap: .5rem; display: flex; flex-direction: column;">
             <div style="display: flex;">
-                <a id="text6">Kafa</a>
-                <a id="text6dbg">??</a>
+                <a id="text6">Saç</a>
                 <input id="head" type="range" min="0" max="100" value="0" />
+            </div>
+            <div style="display: flex;">
+                <a id="text7">Sakal</a>
+                <input id="beard" type="range" min="0" max="28" value="0" />
             </div>
         </div>
         <div id="page2"
@@ -127,31 +133,6 @@
     </div>
 
     <script>
-        const input0 = document.getElementById('gender');
-        const input1 = document.getElementById('mother_ratio');
-        const input2 = document.getElementById('fether_ratio');
-        const input5 = document.getElementById('eye');
-        const input6 = document.getElementById('head');
-        const ff0 = document.getElementById('ff0');
-        const ff1 = document.getElementById('ff1');
-        const ff2 = document.getElementById('ff2');
-        const ff3 = document.getElementById('ff3');
-        const ff4 = document.getElementById('ff4');
-        const ff6 = document.getElementById('ff6');
-        const ff7 = document.getElementById('ff7');
-        const ff8 = document.getElementById('ff8');
-        const ff9 = document.getElementById('ff9');
-        const ff10 = document.getElementById('ff10');
-        const ff11 = document.getElementById('ff11');
-        const ff12 = document.getElementById('ff12');
-        const ff13 = document.getElementById('ff13');
-        const ff14 = document.getElementById('ff14');
-        const ff15 = document.getElementById('ff15');
-        const ff16 = document.getElementById('ff16');
-        const ff17 = document.getElementById('ff17');
-        const ff18 = document.getElementById('ff18');
-        const ff19 = document.getElementById('ff19');
-
         let char = [
             {
                 "gender": "false",
@@ -161,7 +142,7 @@
                 "skin": "0",
                 "eye": "0",
                 "hair": "0",
-                "hair2": "0",
+                "beard": "0",
                 "ff0": "0.0",
                 "ff1": "0.0",
                 "ff2": "0.0",
@@ -184,134 +165,150 @@
             }
         ]
 
+        const [input0, input1, input2, input5, input6, input7, ff0, ff1, ff2, ff3, ff4, ff6, ff7, ff8, ff9, ff10, ff11, ff12, ff13, ff14, ff15, ff16, ff17, ff18, ff19] = 
+        ['gender', 'mother_ratio', 'fether_ratio', 'eye', 'head', 'beard', 'ff0', 'ff1', 'ff2', 'ff3', 'ff4', 'ff6', 'ff7', 'ff8', 'ff9', 'ff10', 'ff11', 'ff12', 'ff13', 'ff14', 'ff15', 'ff16', 'ff17', 'ff18', 'ff19']
+        .map(id => document.getElementById(id));
+
         input0.addEventListener('input', function() {
-        const value = parseInt(input0.value);
-        for (let i = 1; i <= value; i++)
-        switch (i) {
-            case 2: char[0].gender = "false"; break;
-            default: char[0].gender = "true"; break;
-        }
-        sendChar();
+            const value = parseInt(input0.value);
+            for (let i = 1; i <= value; i++)
+            switch (i) {
+                case 2: char[0].gender = "false"; break;
+                default: char[0].gender = "true"; break;
+            }
+            sendChar();
         });
         input1.addEventListener('input', function() {
-        const value = parseInt(input1.value);
-        char[0].mother_ratio = value;
-        sendChar();
+            const value = parseInt(input1.value);
+            char[0].mother_ratio = value;
+            sendChar();
         });
         input2.addEventListener('input', function() {
-        const value = parseInt(input2.value);
-        char[0].father_ratio = value;
-        sendChar();
+            const value = parseInt(input2.value);
+            char[0].father_ratio = value;
+            sendChar();
         });
         input5.addEventListener('input', function() {
-        const value = parseInt(input5.value);
-        char[0].eye = value;
-        sendChar();
+            const value = parseInt(input5.value);
+            char[0].eye = value;
+            sendChar();
         });
         input6.addEventListener('input', function() {
-        const value = input6.value;
-        mp.events.call('html/head_value', value);
+            const value = parseInt(input6.value);
+            char[0].hair = value;
+            sendHead();
+        });
+        input7.addEventListener('input', function() {
+            const value = parseInt(input7.value);
+            char[0].beard = value;
+            sendHead();
         });
         ff0.addEventListener('input', function() {
-        const value = ff0.value;
-        char[0].ff0 = value;
-        sendChar();
+            const value = ff0.value;
+            char[0].ff0 = value;
+            sendChar();
         });
         ff1.addEventListener('input', function() {
-        const value = ff1.value;
-        char[0].ff1 = value;
-        sendChar();
+            const value = ff1.value;
+            char[0].ff1 = value;
+            sendChar();
         });
         ff2.addEventListener('input', function() {
-        const value = ff2.value;
-        char[0].ff2 = value;
-        sendChar();
+            const value = ff2.value;
+            char[0].ff2 = value;
+            sendChar();
         });
         ff3.addEventListener('input', function() {
-        const value = ff3.value;
-        char[0].ff3 = value;
-        sendChar();
+            const value = ff3.value;
+            char[0].ff3 = value;
+            sendChar();
         });
         ff4.addEventListener('input', function() {
-        const value = ff4.value;
-        char[0].ff4 = value;
-        sendChar();
+            const value = ff4.value;
+            char[0].ff4 = value;
+            sendChar();
         });
         ff6.addEventListener('input', function() {
-        const value = ff6.value;
-        char[0].ff6 = value;
-        sendChar();
+            const value = ff6.value;
+            char[0].ff6 = value;
+            sendChar();
         });
         ff7.addEventListener('input', function() {
-        const value = ff7.value;
-        char[0].ff7 = value;
-        sendChar();
+            const value = ff7.value;
+            char[0].ff7 = value;
+            sendChar();
         });
         ff8.addEventListener('input', function() {
-        const value = ff8.value;
-        char[0].ff8 = value;
-        sendChar();
+            const value = ff8.value;
+            char[0].ff8 = value;
+            sendChar();
         });
         ff9.addEventListener('input', function() {
-        const value = ff9.value;
-        char[0].ff9 = value;
-        sendChar();
+            const value = ff9.value;
+            char[0].ff9 = value;
+            sendChar();
         });
         ff10.addEventListener('input', function() {
-        const value = ff10.value;
-        char[0].ff10 = value;
-        sendChar();
+            const value = ff10.value;
+            char[0].ff10 = value;
+            sendChar();
         });
         ff11.addEventListener('input', function() {
-        const value = ff11.value;
-        char[0].ff11 = value;
-        sendChar();
+            const value = ff11.value;
+            char[0].ff11 = value;
+            sendChar();
         });
         ff12.addEventListener('input', function() {
-        const value = ff12.value;
-        char[0].ff12 = value;
-        sendChar();
+            const value = ff12.value;
+            char[0].ff12 = value;
+            sendChar();
         });
         ff13.addEventListener('input', function() {
-        const value = ff13.value;
-        char[0].ff13 = value;
-        sendChar();
+            const value = ff13.value;
+            char[0].ff13 = value;
+            sendChar();
         });
         ff14.addEventListener('input', function() {
-        const value = ff14.value;
-        char[0].ff14 = value;
-        sendChar();
+            const value = ff14.value;
+            char[0].ff14 = value;
+            sendChar();
         });
         ff15.addEventListener('input', function() {
-        const value = ff15.value;
-        char[0].ff15 = value;
-        sendChar();
+            const value = ff15.value;
+            char[0].ff15 = value;
+            sendChar();
         });
         ff16.addEventListener('input', function() {
-        const value = ff16.value;
-        char[0].ff16 = value;
-        sendChar();
+            const value = ff16.value;
+            char[0].ff16 = value;
+            sendChar();
         });
         ff17.addEventListener('input', function() {
-        const value = ff17.value;
-        char[0].ff17 = value;
-        sendChar();
+            const value = ff17.value;
+            char[0].ff17 = value;
+            sendChar();
         });
         ff18.addEventListener('input', function() {
-        const value = ff18.value;
-        char[0].ff18 = value;
-        sendChar();
+            const value = ff18.value;
+            char[0].ff18 = value;
+            sendChar();
         });
         ff19.addEventListener('input', function() {
-        const value = ff19.value;
-        char[0].ff19 = value;
-        sendChar();
+            const value = ff19.value;
+            char[0].ff19 = value;
+            sendChar();
         });
 
         function sendChar() {
             let c = char[0];
             let single = `${c.gender}, ${c.mother_ratio}, ${c.father_ratio}, 0, ${c.mother_ratio}, ${c.father_ratio}, 0, 0, 100, 0, ${c.eye}, ${c.hair}, ${c.hair2}, ${c.ff0}, ${c.ff1}, ${c.ff2}, ${c.ff3}, ${c.ff4}, ${c.ff6}, ${c.ff7}, ${c.ff8}, ${c.ff9}, ${c.ff10}, ${c.ff11}, ${c.ff12}, ${c.ff13}, ${c.ff14}, ${c.ff15}, ${c.ff16}, ${c.ff17}, ${c.ff18}, ${c.ff19}`;
             mp.trigger('html/char', single);
+        }
+
+        function sendHead() {
+            let c = char[0];
+            let head = `${c.hair}, ${c.beard}`;
+            mp.trigger('html/head', head);
         }
 
         function Page1() {
