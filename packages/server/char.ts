@@ -2,10 +2,17 @@ mp.events.add('a', (player) => {
     player.heading += 90;
 });
 
+var valtest = 0;
+
 mp.events.add('client/head', (player, beard, hair) => {
-   player.setHeadOverlay(1, [beard, 1, 0, 0]);
-   player.setHeadOverlayColor(1, [0, hair, hair]);
-   player.setClothes(2, hair, 0, 0);
+    player.setClothes(2, hair, 0, 0);
+    player.setHeadOverlay(1, [beard, 1, valtest, valtest]); // [index, opacity, firstColor, secondColor]
+
+    // to do //
+    // to do //
+    // to do //
+    // to do //
+    // to do //
 });
 
 mp.events.add('client/char', (player, single) => {
@@ -45,6 +52,7 @@ mp.events.add('client/char', (player, single) => {
     const ff18 = Number(single_array[30]);
     const ff19 = Number(single_array[31]);
 
+    valtest = val11;
 
 
     player.setCustomization(val0, val1, val2, 0, val1, val2, 0, 0, 100, 0, val10, val11, val12, 
@@ -56,5 +64,5 @@ mp.events.add('client/char', (player, single) => {
         ]
     );
 
-    // player.playAnimation('anim@veh@heli@thruster@front@base', 'sit', 8, 1);
+    player.playAnimation('anim@veh@heli@thruster@front@base', 'sit', 8, 1);
 });

@@ -24,7 +24,7 @@ mp.keys.bind(113, true, () => {
     browser.destroy();
     mp.events.callRemote('f2');
 });
-
+  
 mp.keys.bind(114, true, () => {
     const player = mp.players.local;
     const pos = player.position;
@@ -71,6 +71,7 @@ mp.events.add('cam', () => {
     mp.players.local.freezePosition(false);
 });
 
+// Press H to state0 = true;
 var state0 = false;
 mp.keys.bind(72, true, () => {
     state0 = true;
@@ -108,10 +109,10 @@ mp.events.add('render', () => {
     });
 
     cam.setCoord(cam_x, cam_y, cam_z);
-    const cam_coord = cam.getCoord();
-    cam.pointAtCoord(-89.46919250488281, cam_y, cam_z)
+      const cam_coord = cam.getCoord();
+      cam.pointAtCoord(-89.46919250488281, cam_y, cam_z)
 
-    if (state0 === true) mp.console.logInfo(cam_coord.x + ", " + cam_coord.y + ", " + cam_coord.z);
+      if (state0 === true) mp.console.logInfo(cam_coord.x + ", " + cam_coord.y + ", " + cam_coord.z);
     
 });
 

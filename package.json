@@ -1,5 +1,6 @@
 {
   "dependencies": {
+    "@ragempcommunity/types-server": "^2.1.8",
     "mongoose": "^7.7.0"
   }
 }
