@@ -64,56 +64,43 @@ mp.events.add('cam', () => {
     mp.game.ui.displayRadar(false);
     cam = mp.cameras.new('default', new mp.Vector3(0, 0, 0), new mp.Vector3(0, 0, 0), 
     40);
-    mp.players.local.position = new mp.Vector3(-89.46919250488281, -1777.118896484375, 28.99894142150879);
+    // mp.players.local.position = new mp.Vector3(-89.46919250488281, -1777.118896484375, 28.99894142150879);
     cam.pointAtCoord(-89.46919250488281, -1777.118896484375, 29.7)
     cam.setActive(true);
+    cam.setCoord(cam_x, cam_y, cam_z)
     mp.game.cam.renderScriptCams(true, false, 0, true, false);
     mp.players.local.freezePosition(false);
 });
 
 // Press H to state0 = true;
-var state0 = false;
-mp.keys.bind(72, true, () => {
+var state0, state1;
+mp.keys.bind(65, true, () => {
     state0 = true;
 });
-
-mp.keys.bind(72, false, () => {
+mp.keys.bind(65, false, () => {
     state0 = false;
+});
+mp.keys.bind(68, true, () => {
+    state1 = true;
+});
+mp.keys.bind(68, false, () => {
+    state1 = false;
 });
 
 // dev function
 mp.events.add('render', () => {
-    mp.keys.bind(87, true, () => { 
-        cam_x += .00005;
-    });
-    
-    mp.keys.bind(83, true, () => { 
-        cam_x -= .00005;
-    });
+    const cam_coord = cam.getCoord();
+    const player = mp.players.local;
 
-    mp.keys.bind(68, true, () => { 
-        cam_y += .00005;
-    });
-    
-    mp.keys.bind(65, true, () => { 
-        cam_y -= .00005;
-    });
-    
-    mp.keys.bind(16, true, () => { 
-        cam_z += .00005;
-        
-    });
-    
-    mp.keys.bind(32, true, () => { 
-        cam_z -= .00005;
-    });
+    if (state0 === true) {
+        mp.game.task.lookAtCoord(player.handle, cam_coord.x, cam_coord.y + 5, cam_coord.z, -1, 1, 1);
+    } else {
+        mp.game.task.lookAtCoord(player.handle, cam_coord.x, cam_coord.y, cam_coord.z, -1, 1, 1);
+    }
 
-    cam.setCoord(cam_x, cam_y, cam_z);
-      const cam_coord = cam.getCoord();
-      cam.pointAtCoord(-89.46919250488281, cam_y, cam_z)
-
-      if (state0 === true) mp.console.logInfo(cam_coord.x + ", " + cam_coord.y + ", " + cam_coord.z);
-    
+    if (state1 === true) {
+        mp.game.task.lookAtCoord(player.handle, cam_coord.x, cam_coord.y - 5, cam_coord.z, -1, 1, 1);
+    }
 });
 
 mp.events.add('client:disableLoginCamera', () => {
