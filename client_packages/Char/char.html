@@ -1,14 +1,50 @@
 <!DOCTYPE html>
 
+<head>
+    <style>@import url('https://fonts.googleapis.com/css2?family=Roboto+Slab:wght@100..900&family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap');</style>
+</head>
+
 <body style="margin:0px; display: grid;">
     <style>
         * {
             outline: none;
             border: none;
             user-select: none;
+            font-family: "Roboto Slab", serif;
         }
         body {
-            /* background: #666666; */
+            background-image: url('./gameplay.webp');
+            background-repeat: no-repeat;
+            background-size: cover;
+            background-position: center;
+        }
+        
+        .inputrange {
+            -webkit-appearance: none;
+            background: transparent;
+            cursor: pointer;
+            appearance: none;
+            width: 13rem;
+        }
+
+        .inputrange::-webkit-slider-runnable-track {
+            background-color: rgb(68, 68, 68);
+            border-top: 1px solid rgb(220, 220, 220);
+            border-bottom: 1px solid rgb(220, 220, 220);;
+            max-height: 1vh;
+            opacity: 90%;
+        }
+
+        .inputrange::-webkit-slider-thumb {
+            -webkit-appearance: none;
+            appearance: none;
+            width: 18px;
+            height: 18px;
+            background-image: url('./cursor.svg');
+            background-size: contain;
+            background-repeat: no-repeat;
+            cursor: pointer;
+            margin-top: -5px
         }
     </style>
     <div style="display: flex;">
@@ -21,145 +57,150 @@
             style="width: max-content; background-color: rgba(1, 0, 0, .5); padding: 1rem; gap: .5rem; display: none; flex-direction: column;">
             <div style="display: flex; gap: 2rem;">
                 <a id="text0">Cinsiyet</a>
-                <input id="gender" type="range" min="1" max="2" value="1"/>
+                <input id="gender" type="range" class="inputrange" min="1" max="2" value="1"/>
             </div>
             <div style="display: flex;">
                 <a id="text1">Yüz Tipi</a>
-                <input id="mother_ratio" type="range" min="0" max="45" value="0" />
+                <input id="mother_ratio" type="range" class="inputrange" min="0" max="45" value="0" />
             </div>
             <div style="display: flex;">
                 <a id="text2">Cilt</a>
-                <input id="fether_ratio" type="range" min="0" max="45" value="0" />
+                <input id="fether_ratio" type="range" class="inputrange" min="0" max="45" value="0" />
             </div>
             <div style="display: flex;">
                 <a id="text5">Göz Rengi</a>
-                <input id="eye" type="range" min="0" max="8" value="0" />
+                <input id="eye" type="range" class="inputrange" min="0" max="8" value="0" />
             </div>
         </div>
         <div id="page1"
             style="width: max-content; background-color: rgba(1, 0, 0, .5); padding: 1rem; gap: .5rem; display: none; flex-direction: column;">
             <div style="display: flex;">
                 <a>Saç</a>
-                <input id="hair" type="range" min="0" max="100" value="0" />
+                <input id="hair" type="range" class="inputrange" min="0" max="100" value="0" />
             </div>
             <div style="display: flex;">
                 <a >Saç Rengi</a>
-                <input id="hair1" type="range" min="0" max="63" value="0" />
+                <input id="hair1" type="range" class="inputrange" min="0" max="63" value="0" />
             </div>
             <div style="display: flex;">
                 <a>Saç Röflesi</a>
-                <input id="hair2" type="range" min="0" max="63" value="0" />
+                <input id="hair2" type="range" class="inputrange" min="0" max="63" value="0" />
             </div>
             <div style="display: flex;">
                 <a>Sakal</a>
-                <input id="beard" type="range" min="0" max="28" value="0" />
+                <input id="beard" type="range" class="inputrange" min="0" max="28" value="0" />
             </div>
             <div style="display: flex;">
                 <a>Sakal Rengi</a>
-                <input id="beardcolor" type="range" min="0" max="63" value="0" />
+                <input id="beardcolor" type="range" class="inputrange" min="0" max="63" value="0" />
             </div>
         </div>
         <div id="page2"
             style="width: max-content; background-color: rgba(1, 0, 0, .5); padding: 1rem; gap: .5rem; display: none; flex-direction: column; color: white; font-size: 1rem;">
-            <div style="display: flex;">
-                Kaş yüksekliği
-                <input id="ff6" type="range" min="-1.0" max="1.0" value="0.0" step="0.01" />
-            </div>
-            <div style="display: flex;">
-                Kaş genişliği
-                <input id="ff7" type="range" min="-1.0" max="1.0" value="0.0" step="0.01" />
-            </div>
-            <div style="display: flex;">
-                Göz boyutu
-                <input id="ff11" type="range" min="-1.0" max="1.0" value="0.0" step="0.01" />
-            </div>
-            <div style="display: flex;">
-                Elmacık kemiği yüksekliği
-                <input id="ff8" type="range" min="-1.0" max="1.0" value="0.0" step="0.01" />
-            </div>
-            <div style="display: flex;">
-                Elmacık kemiği genişliği
-                <input id="ff9" type="range" min="-1.0" max="1.0" value="0.0" step="0.01" />
-            </div>
-            <div style="display: flex;">
-                Burun genişliği
-                <input id="ff0" type="range" min="-1.0" max="1.0" value="0.0" step="0.01" />
-            </div>
-            <div style="display: flex;">
-                Burun yüksekliği
-                <input id="ff1" type="range" min="-1.0" max="1.0" value="0.0" step="0.01" />
-            </div>
-            <div style="display: flex;">
-                Burun uzunluğu
-                <input id="ff2" type="range" min="-1.0" max="1.0" value="0.0" step="0.01" />
-            </div>
-            <div style="display: flex;">
-                Burun köprüsü
-                <input id="ff3" type="range" min="-1.0" max="1.0" value="0.0" step="0.01" />
-            </div>
-            <div style="display: flex;">
-                Burun ucu
-                <input id="ff4" type="range" min="-1.0" max="1.0" value="0.0" step="0.01" />
-            </div>
-            <div style="display: flex;">
-                Yanak genişliği
-                <input id="ff10" type="range" min="-1.0" max="1.0" value="0.0" step="0.01" />
-            </div>
-            <div style="display: flex;">
-                Jaw genişliği
-                <input id="ff13" type="range" min="-1.0" max="1.0" value="0.0" step="0.01" />
-            </div>
-            <div style="display: flex;">
-                Jaw yüksekliği
-                <input id="ff14" type="range" min="-1.0" max="1.0" value="0.0" step="0.01" />
-            </div>
-            <div style="display: flex;">
-                Dudak kalınlığı
-                <input id="ff12" type="range" min="-1.0" max="1.0" value="0.0" step="0.01" />
-            </div>
-            <div style="display: flex;">
-                Çene uzunluğu
-                <input id="ff15" type="range" min="-1.0" max="1.0" value="0.0" step="0.01" />
-            </div>
-            <div style="display: flex;">
-                Çene yüksekliği
-                <input id="ff16" type="range" min="-1.0" max="1.0" value="0.0" step="0.01" />
-            </div>
-            <div style="display: flex;">
-                Çene genişliği
-                <input id="ff17" type="range" min="-1.0" max="1.0" value="0.0" step="0.01" />
-            </div>
-            <div style="display: flex;">
-                Çene şekli
-                <input id="ff18" type="range" min="-1.0" max="1.0" value="0.0" step="0.01" />
-            </div>
-            <div style="display: flex;">
-                Boyun genişliği
-                <input id="ff19" type="range" min="-1.0" max="1.0" value="0.0" step="0.01" />
-            </div>
+            
         </div>
         <div id="divmain" style="
         display: block;
-        background-color: rgba(1, 0, 0, .8);
+        background-color: rgba(1, 0, 0, .9);
         margin-left: 2rem;
         max-height: 100vh; 
         min-height: 100vh; 
         max-width: 50vh;
         min-width: 50vh;
-        border-left: 1px solid rgb(140, 140, 140);
-        border-right: 1px solid rgb(140, 140, 140);
+        border-left: 2px solid rgb(140, 140, 140);
+        border-right: 2px solid rgb(140, 140, 140);
         ">
-        <div style="margin: .5rem; border-bottom: 1px solid rgb(140, 140, 140);">
+        <div style="margin: .5rem; border-bottom: 2px solid rgb(140, 140, 140);">
             <button style="background-color: rgba(1, 0, 0, 0);" onclick="Page1()">KAFA</button>
             <button style="background-color: rgba(1, 0, 0, 0);" onclick="Page2()">VÜCUT</button>
         </div>
         <div style="
         display: flex;
         flex-direction: column;
+        color: white;
         ">
-            <a>hello</a>
-            <a>world</a>
-        </div>
+            <div style="display: flex;">
+                Kaş yüksekliği
+                <input id="ff6" type="range" class="inputrange" min="-1.0" max="1.0" value="0.0" step="0.01" />
+                <img src="./cursor.png" style="
+                transform: rotate(47deg); 
+                position: absolute;
+                left: 21.8rem;
+                width: 1.4rem;
+                ">
+            </div>
+            <div style="display: flex;">
+                Kaş genişliği
+                <input id="ff7" type="range" class="inputrange" min="-1.0" max="1.0" value="0.0" step="0.01" />
+            </div>
+            <div style="display: flex;">
+                Göz boyutu
+                <input id="ff11" type="range" class="inputrange" min="-1.0" max="1.0" value="0.0" step="0.01" />
+            </div>
+            <div style="display: flex;">
+                Elmacık kemiği yüksekliği
+                <input id="ff8" type="range" class="inputrange" min="-1.0" max="1.0" value="0.0" step="0.01" />
+            </div>
+            <div style="display: flex;">
+                Elmacık kemiği genişliği
+                <input id="ff9" type="range" class="inputrange" min="-1.0" max="1.0" value="0.0" step="0.01" />
+            </div>
+            <div style="display: flex;">
+                Burun genişliği
+                <input id="ff0" type="range" class="inputrange" min="-1.0" max="1.0" value="0.0" step="0.01" />
+            </div>
+            <div style="display: flex;">
+                Burun yüksekliği
+                <input id="ff1" type="range" class="inputrange" min="-1.0" max="1.0" value="0.0" step="0.01" />
+            </div>
+            <div style="display: flex;">
+                Burun uzunluğu
+                <input id="ff2" type="range" class="inputrange" min="-1.0" max="1.0" value="0.0" step="0.01" />
+            </div>
+            <div style="display: flex;">
+                Burun köprüsü
+                <input id="ff3" type="range" class="inputrange" min="-1.0" max="1.0" value="0.0" step="0.01" />
+            </div>
+            <div style="display: flex;">
+                Burun ucu
+                <input id="ff4" type="range" class="inputrange" min="-1.0" max="1.0" value="0.0" step="0.01" />
+            </div>
+            <div style="display: flex;">
+                Yanak genişliği
+                <input id="ff10" type="range" class="inputrange" min="-1.0" max="1.0" value="0.0" step="0.01" />
+            </div>
+            <div style="display: flex;">
+                Jaw genişliği
+                <input id="ff13" type="range" class="inputrange" min="-1.0" max="1.0" value="0.0" step="0.01" />
+            </div>
+            <div style="display: flex;">
+                Jaw yüksekliği
+                <input id="ff14" type="range" class="inputrange" min="-1.0" max="1.0" value="0.0" step="0.01" />
+            </div>
+            <div style="display: flex;">
+                Dudak kalınlığı
+                <input id="ff12" type="range" class="inputrange" min="-1.0" max="1.0" value="0.0" step="0.01" />
+            </div>
+            <div style="display: flex;">
+                Çene uzunluğu
+                <input id="ff15" type="range" class="inputrange" min="-1.0" max="1.0" value="0.0" step="0.01" />
+            </div>
+            <div style="display: flex;">
+                Çene yüksekliği
+                <input id="ff16" type="range" class="inputrange" min="-1.0" max="1.0" value="0.0" step="0.01" />
+            </div>
+            <div style="display: flex;">
+                Çene genişliği
+                <input id="ff17" type="range" class="inputrange" min="-1.0" max="1.0" value="0.0" step="0.01" />
+            </div>
+            <div style="display: flex;">
+                Çene şekli
+                <input id="ff18" type="range" class="inputrange" min="-1.0" max="1.0" value="0.0" step="0.01" />
+            </div>
+            <div style="display: flex;">
+                Boyun genişliği
+                <input id="ff19" type="range" class="inputrange" min="0" max="1.0" value="0.0" step="0.01" />
+            </div>
         </div>
     </div>
 
