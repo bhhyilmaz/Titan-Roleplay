@@ -29,10 +29,12 @@
 
         .inputrange::-webkit-slider-runnable-track {
             background-color: rgb(68, 68, 68);
-            border-top: 1px solid rgb(220, 220, 220);
-            border-bottom: 1px solid rgb(220, 220, 220);;
+            border: 1px solid rgb(220, 220, 220);
             max-height: 1vh;
             opacity: 90%;
+            border-radius: .5rem;
+            border-left: 5px solid rgb(220, 220, 220);
+            border-right: 5px solid rgb(220, 220, 220);
         }
 
         .inputrange::-webkit-slider-thumb {
@@ -44,7 +46,18 @@
             background-size: contain;
             background-repeat: no-repeat;
             cursor: pointer;
-            margin-top: -5px
+            margin-top: -5px;
+        }
+
+        .btnmain {
+            background-color: rgba(1, 0, 0, 0);
+            color: white;
+            font-size: 1.3rem;
+            border: 2px solid rgba(220, 220, 220, 0);
+        }
+
+        .ainput {
+            font-size: 1.3rem;
         }
     </style>
     <div style="display: flex;">
@@ -105,100 +118,102 @@
         margin-left: 2rem;
         max-height: 100vh; 
         min-height: 100vh; 
-        max-width: 50vh;
-        min-width: 50vh;
+        max-width: 75vh;
+        min-width: 75vh;
         border-left: 2px solid rgb(140, 140, 140);
         border-right: 2px solid rgb(140, 140, 140);
         ">
-        <div style="margin: .5rem; border-bottom: 2px solid rgb(140, 140, 140);">
-            <button style="background-color: rgba(1, 0, 0, 0);" onclick="Page1()">KAFA</button>
-            <button style="background-color: rgba(1, 0, 0, 0);" onclick="Page2()">VÜCUT</button>
+        <div style="gap: 1rem; justify-content: center; display: flex; padding: 1rem; margin: .5rem; border-bottom: 2px solid rgb(140, 140, 140);">
+            <button id="btnpg0" class="btnmain" onclick="Page0()">VÜCUT</button>
+            <button id="btnpg1" class="btnmain" onclick="Page1()">SURAT</button>
+            <button id="btnpg2" class="btnmain" onclick="Page2()">TODO 1</button>
+            <button id="btnpg3" class="btnmain" onclick="Page3()">TODO 2</button>
         </div>
         <div style="
         display: flex;
         flex-direction: column;
         color: white;
+        gap: .5rem;
+        padding: 1rem;
         ">
-            <div style="display: flex;">
-                Kaş yüksekliği
+            <div style="display: flex; align-items: center;">
+                <a class="ainput">Kaş Yüksekliği</a>
                 <input id="ff6" type="range" class="inputrange" min="-1.0" max="1.0" value="0.0" step="0.01" />
-                <img src="./cursor.png" style="
-                transform: rotate(47deg); 
-                position: absolute;
-                left: 21.8rem;
-                width: 1.4rem;
-                ">
+                <a style="margin-right: 0rem;">0</a>
             </div>
             <div style="display: flex;">
-                Kaş genişliği
+                <a class="ainput">Kaş Genişliği</a>
                 <input id="ff7" type="range" class="inputrange" min="-1.0" max="1.0" value="0.0" step="0.01" />
             </div>
             <div style="display: flex;">
-                Göz boyutu
+                <a class="ainput">Göz Boyutu</a>
                 <input id="ff11" type="range" class="inputrange" min="-1.0" max="1.0" value="0.0" step="0.01" />
             </div>
-            <div style="display: flex;">
-                Elmacık kemiği yüksekliği
+            <div style="display: flex; justify-content: space-between;">
+                <a class="ainput">Elmacık Kemiği Yüksekliği</a>
                 <input id="ff8" type="range" class="inputrange" min="-1.0" max="1.0" value="0.0" step="0.01" />
+                <a style="margin-right: 0rem;">0</a>
             </div>
             <div style="display: flex;">
-                Elmacık kemiği genişliği
+                <a class="ainput">Elmacık Kemiği Genişliği</a>
                 <input id="ff9" type="range" class="inputrange" min="-1.0" max="1.0" value="0.0" step="0.01" />
             </div>
             <div style="display: flex;">
-                Burun genişliği
+                <a class="ainput">Burun Genişliği</a>
                 <input id="ff0" type="range" class="inputrange" min="-1.0" max="1.0" value="0.0" step="0.01" />
             </div>
             <div style="display: flex;">
-                Burun yüksekliği
+                <a class="ainput">Burun Yüksekliği</a>
                 <input id="ff1" type="range" class="inputrange" min="-1.0" max="1.0" value="0.0" step="0.01" />
             </div>
             <div style="display: flex;">
-                Burun uzunluğu
+                <a class="ainput">Burun Uzunluğu</a>
                 <input id="ff2" type="range" class="inputrange" min="-1.0" max="1.0" value="0.0" step="0.01" />
             </div>
             <div style="display: flex;">
-                Burun köprüsü
+                <a class="ainput">Burun Köprüsü</a>
                 <input id="ff3" type="range" class="inputrange" min="-1.0" max="1.0" value="0.0" step="0.01" />
             </div>
+            <div>
+            </div>
             <div style="display: flex;">
-                Burun ucu
+                <a class="ainput">Burun Ucu</a>
                 <input id="ff4" type="range" class="inputrange" min="-1.0" max="1.0" value="0.0" step="0.01" />
             </div>
             <div style="display: flex;">
-                Yanak genişliği
+                <a class="ainput">Yanak Genişliği</a>
                 <input id="ff10" type="range" class="inputrange" min="-1.0" max="1.0" value="0.0" step="0.01" />
             </div>
             <div style="display: flex;">
-                Jaw genişliği
+                <a class="ainput">Jaw Genişliği</a>
                 <input id="ff13" type="range" class="inputrange" min="-1.0" max="1.0" value="0.0" step="0.01" />
             </div>
             <div style="display: flex;">
-                Jaw yüksekliği
+                <a class="ainput">Jaw Yüksekliği</a>
                 <input id="ff14" type="range" class="inputrange" min="-1.0" max="1.0" value="0.0" step="0.01" />
             </div>
             <div style="display: flex;">
-                Dudak kalınlığı
+                <a class="ainput">Dudak Kalınlığı</a>
                 <input id="ff12" type="range" class="inputrange" min="-1.0" max="1.0" value="0.0" step="0.01" />
             </div>
             <div style="display: flex;">
-                Çene uzunluğu
+                <a class="ainput">Çene Uzunluğu</a>
                 <input id="ff15" type="range" class="inputrange" min="-1.0" max="1.0" value="0.0" step="0.01" />
             </div>
             <div style="display: flex;">
-                Çene yüksekliği
+                <a class="ainput">Çene Yüksekliği</a>
                 <input id="ff16" type="range" class="inputrange" min="-1.0" max="1.0" value="0.0" step="0.01" />
             </div>
             <div style="display: flex;">
-                Çene genişliği
+                <a class="ainput">Çene Genişliği</a>
                 <input id="ff17" type="range" class="inputrange" min="-1.0" max="1.0" value="0.0" step="0.01" />
             </div>
             <div style="display: flex;">
-                Çene şekli
+                <a class="ainput">Çene Şekli</a>
                 <input id="ff18" type="range" class="inputrange" min="-1.0" max="1.0" value="0.0" step="0.01" />
             </div>
             <div style="display: flex;">
-                Boyun genişliği
+                <a class="ainput">Boyun Genişliği</a>
                 <input id="ff19" type="range" class="inputrange" min="0" max="1.0" value="0.0" step="0.01" />
             </div>
         </div>
@@ -400,12 +415,29 @@
             mp.trigger('html/head', head);
         }
 
-        function Page1() {
-            // divmain.style.display = "none";
+        function Page0() {
+            btnpg0.style.borderBottom = '2px solid rgb(220, 220, 220)';
+            btnpg1.style.borderBottom = '2px solid rgba(220, 220, 220, 0)';
+            btnpg2.style.borderBottom = '2px solid rgb(220, 220, 220, 0)';
+            btnpg3.style.borderBottom = '2px solid rgb(220, 220, 220, 0)';
         }
-
+        function Page1() {
+            btnpg1.style.borderBottom = '2px solid rgb(220, 220, 220)';
+            btnpg0.style.borderBottom = '2px solid rgba(220, 220, 220, 0)';
+            btnpg2.style.borderBottom = '2px solid rgb(220, 220, 220, 0)';
+            btnpg3.style.borderBottom = '2px solid rgb(220, 220, 220, 0)';
+        }
         function Page2() {
-            // divmain.style.display = "none";
+            btnpg2.style.borderBottom = '2px solid rgb(220, 220, 220)';
+            btnpg0.style.borderBottom = '2px solid rgba(220, 220, 220, 0)';
+            btnpg1.style.borderBottom = '2px solid rgba(220, 220, 220, 0)';
+            btnpg3.style.borderBottom = '2px solid rgb(220, 220, 220, 0)';
+        }
+        function Page3() {
+            btnpg3.style.borderBottom = '2px solid rgb(220, 220, 220)';
+            btnpg0.style.borderBottom = '2px solid rgba(220, 220, 220, 0)';
+            btnpg1.style.borderBottom = '2px solid rgba(220, 220, 220, 0)';
+            btnpg2.style.borderBottom = '2px solid rgba(220, 220, 220, 0)';
         }
 
         function Rotate() {
