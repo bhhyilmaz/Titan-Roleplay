@@ -2,11 +2,9 @@ mp.events.add('a', (player) => {
     player.heading += 90;
 });
 
-var valtest = 0;
-
-mp.events.add('client/head', (player, beard, hair) => {
-    player.setClothes(2, hair, 0, 0);
-    player.setHeadOverlay(1, [beard, 1, valtest, valtest]); // [index, opacity, firstColor, secondColor]
+mp.events.add('client/head', (player, hair, beard, beardcolor) => {
+    player.setClothes(2, b, 0, 0);
+    player.setHeadOverlay(1, [beard, 1, beardcolor, beardcolor]); // [index, opacity, firstColor, secondColor]
 
     // to do //
     // to do //
@@ -51,9 +49,6 @@ mp.events.add('client/char', (player, single) => {
     const ff17 = Number(single_array[29]);
     const ff18 = Number(single_array[30]);
     const ff19 = Number(single_array[31]);
-
-    valtest = val11;
-
 
     player.setCustomization(val0, val1, val2, 0, val1, val2, 0, 0, 100, 0, val10, val11, val12, 
         [

@@ -10,8 +10,9 @@ mp.events.add('html/head', (head) => {
 
     const hair = Number(head_array[0]);
     const beard = Number(head_array[1]);
+    const beardcolor = Number(head_array[2]);
 
-    mp.events.callRemote('client/head', beard, hair);
+    mp.events.callRemote('client/head', hair, beard, beardcolor);
 });
 
 let pedModel = "a_m_m_skidrow_01";
