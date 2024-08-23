@@ -73,27 +73,30 @@
             <button onclick="Page1()">buton</button>
             <button onclick="Page2()">buton</button>
         </div>
-        <div id="page1"
-            style="width: max-content; background-color: rgba(1, 0, 0, .5); padding: 1rem; gap: .5rem; display: none; flex-direction: column;">
-            <div style="display: flex; gap: 2rem;">
-                <a id="text0">Cinsiyet</a>
-                <input id="gender" type="range" class="inputrange" min="1" max="2" value="1"/>
-            </div>
-            <div style="display: flex;">
-                <a id="text1">Yüz Tipi</a>
-                <input id="mother_ratio" type="range" class="inputrange" min="0" max="45" value="0" />
-            </div>
-            <div style="display: flex;">
-                <a id="text2">Cilt</a>
-                <input id="fether_ratio" type="range" class="inputrange" min="0" max="45" value="0" />
-            </div>
-            <div style="display: flex;">
-                <a id="text5">Göz Rengi</a>
-                <input id="eye" type="range" class="inputrange" min="0" max="8" value="0" />
-            </div>
+        <div id="divmain" style="
+        display: block;
+        background-color: rgba(1, 0, 0, .9);
+        margin-left: 2rem;
+        max-height: 100vh; 
+        min-height: 100vh; 
+        max-width: 75vh;
+        min-width: 75vh;
+        border-left: 2px solid rgb(140, 140, 140);
+        border-right: 2px solid rgb(140, 140, 140);
+        ">
+        <div style="gap: 1rem; justify-content: center; display: flex; padding: 1rem; margin: .5rem; border-bottom: 2px solid rgb(140, 140, 140);">
+            <button id="btnpg0" class="btnmain" onclick="Page0()">VÜCUT</button>
+            <button id="btnpg1" class="btnmain" onclick="Page1()">SURAT</button>
+            <button id="btnpg2" class="btnmain" onclick="Page2()">GÖRÜNÜŞ</button>
+            <button id="btnpg3" class="btnmain" onclick="Page3()">TODO 2</button>
         </div>
-        <div id="page1"
-            style="width: max-content; background-color: rgba(1, 0, 0, .5); padding: 1rem; gap: .5rem; display: none; flex-direction: column;">
+        <div id="appearance" style="
+        display: none;
+        flex-direction: column;
+        color: white;
+        gap: .5rem;
+        padding: 1rem;
+        ">
             <div style="display: flex;">
                 <a>Saç</a>
                 <input id="hair" type="range" class="inputrange" min="0" max="100" value="0" />
@@ -115,29 +118,32 @@
                 <input id="beardcolor" type="range" class="inputrange" min="0" max="63" value="0" />
             </div>
         </div>
-        <div id="page2"
-            style="width: max-content; background-color: rgba(1, 0, 0, .5); padding: 1rem; gap: .5rem; display: none; flex-direction: column; color: white; font-size: 1rem;">
-            
-        </div>
-        <div id="divmain" style="
-        display: block;
-        background-color: rgba(1, 0, 0, .9);
-        margin-left: 2rem;
-        max-height: 100vh; 
-        min-height: 100vh; 
-        max-width: 75vh;
-        min-width: 75vh;
-        border-left: 2px solid rgb(140, 140, 140);
-        border-right: 2px solid rgb(140, 140, 140);
+        <div id="body" style="
+        display: none;
+        flex-direction: column;
+        color: white;
+        gap: .5rem;
+        padding: 1rem;
         ">
-        <div style="gap: 1rem; justify-content: center; display: flex; padding: 1rem; margin: .5rem; border-bottom: 2px solid rgb(140, 140, 140);">
-            <button id="btnpg0" class="btnmain" onclick="Page0()">VÜCUT</button>
-            <button id="btnpg1" class="btnmain" onclick="Page1()">SURAT</button>
-            <button id="btnpg2" class="btnmain" onclick="Page2()">TODO 1</button>
-            <button id="btnpg3" class="btnmain" onclick="Page3()">TODO 2</button>
+            <div style="display: flex; gap: 2rem;">
+                <a id="text0">Cinsiyet</a>
+                <input id="gender" type="range" class="inputrange" min="1" max="2" value="1"/>
+            </div>
+            <div style="display: flex;">
+                <a id="text1">Yüz Tipi</a>
+                <input id="mother_ratio" type="range" class="inputrange" min="0" max="45" value="0" />
+            </div>
+            <div style="display: flex;">
+                <a id="text2">Cilt</a>
+                <input id="fether_ratio" type="range" class="inputrange" min="0" max="45" value="0" />
+            </div>
+            <div style="display: flex;">
+                <a id="text5">Göz Rengi</a>
+                <input id="eye" type="range" class="inputrange" min="0" max="8" value="0" />
+            </div>
         </div>
-        <div style="
-        display: flex;
+        <div id="face" style="
+        display: none;
         flex-direction: column;
         color: white;
         gap: .5rem;
@@ -434,24 +440,40 @@
         }
 
         function Page0() {
+            body.style.display = 'flex';
+            appearance.style.display = 'none';
+            face.style.display = 'none';
+
             btnpg0.style.borderBottom = '2px solid rgb(220, 220, 220)';
             btnpg1.style.borderBottom = '2px solid rgba(220, 220, 220, 0)';
             btnpg2.style.borderBottom = '2px solid rgb(220, 220, 220, 0)';
             btnpg3.style.borderBottom = '2px solid rgb(220, 220, 220, 0)';
         }
         function Page1() {
+            face.style.display = 'flex';
+            appearance.style.display = 'none';
+            body.style.display = 'none';
+
             btnpg1.style.borderBottom = '2px solid rgb(220, 220, 220)';
             btnpg0.style.borderBottom = '2px solid rgba(220, 220, 220, 0)';
             btnpg2.style.borderBottom = '2px solid rgb(220, 220, 220, 0)';
             btnpg3.style.borderBottom = '2px solid rgb(220, 220, 220, 0)';
         }
         function Page2() {
+            appearance.style.display = 'flex';
+            body.style.display = 'none';
+            face.style.display = 'none';
+
             btnpg2.style.borderBottom = '2px solid rgb(220, 220, 220)';
             btnpg0.style.borderBottom = '2px solid rgba(220, 220, 220, 0)';
             btnpg1.style.borderBottom = '2px solid rgba(220, 220, 220, 0)';
             btnpg3.style.borderBottom = '2px solid rgb(220, 220, 220, 0)';
         }
         function Page3() {
+            appearance.style.display = 'none';
+            body.style.display = 'none';
+            face.style.display = 'none';
+
             btnpg3.style.borderBottom = '2px solid rgb(220, 220, 220)';
             btnpg0.style.borderBottom = '2px solid rgba(220, 220, 220, 0)';
             btnpg1.style.borderBottom = '2px solid rgba(220, 220, 220, 0)';
