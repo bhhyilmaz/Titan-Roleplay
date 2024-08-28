@@ -312,7 +312,7 @@
         });
         input6.addEventListener('input', function() {
             char[0].hair = input6.value
-            sendChar();
+            sendHead();
         });
         input61.addEventListener('input', function() {
             char[0].hair1 = input61.value
@@ -324,11 +324,11 @@
         });
         input7.addEventListener('input', function() {
             char[0].beard = input7.value
-            sendChar();
+            sendHead();
         });
         input71.addEventListener('input', function() {
             char[0].beardcolor = input71.value
-            sendChar();
+            sendHead();
         });
         ff0.addEventListener('input', function() {
             document.getElementById('aff0').innerHTML = ff0.value;
@@ -430,12 +430,12 @@
             let c = char[0];
             let single = `${c.gender}, ${c.mother_ratio}, ${c.father_ratio}, 0, ${c.mother_ratio}, ${c.father_ratio}, 0, 0, 100, 0, ${c.eye}, ${c.hair1}, ${c.hair2}, ${c.ff0}, ${c.ff1}, ${c.ff2}, ${c.ff3}, ${c.ff4}, ${c.ff6}, ${c.ff7}, ${c.ff8}, ${c.ff9}, ${c.ff10}, ${c.ff11}, ${c.ff12}, ${c.ff13}, ${c.ff14}, ${c.ff15}, ${c.ff16}, ${c.ff17}, ${c.ff18}, ${c.ff19}`;
             mp.trigger('html/char', single);
-            console.log(single)
         }
 
         function sendHead() {
             let c = char[0];
             let head = `${c.hair}, ${c.beard}, ${c.beardcolor}`;
+            console.log(head)
             mp.trigger('html/head', head);
         }
 

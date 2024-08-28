@@ -18,31 +18,6 @@ mp.events.add('html/head', (head) => {
 let pedModel = "a_m_m_skidrow_01";
 let spawnPosition = new mp.Vector3(-91, -1777.1153564453125, 29.568950653076172);
 
-// Create the ped
-var ped = mp.peds.new(pedModel, spawnPosition, 0.0);
-
-mp.keys.bind(113, true, () => { 
-    browser.destroy();
-    mp.events.callRemote('f2');
-});
-  
-mp.keys.bind(114, true, () => {
-    const player = mp.players.local;
-    const pos = player.position;
-    const heading = player.getHeading();
-
-    // Calculate the position to the left of the player
-    const leftPosition = {
-        x: pos.x + Math.cos((heading - 90) * (Math.PI / 180)),
-        y: pos.y + Math.sin((heading - 90) * (Math.PI / 180)),
-        z: pos.z
-    };
-
-    // Make the player look at the calculated position
-    player.taskLookAt(ped.handle, 5000, 2048, 1);
-});
-//
-
 mp.events.add('char', () => {
     mp.events.call('cam');
     mp.players.local.freezePosition(false);
