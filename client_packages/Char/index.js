@@ -1,6 +1,13 @@
 var browser = mp.browsers.new("package://Char/char.html");
 var cam;
 
+// DEV
+mp.keys.bind(113, true, () => { 
+    browser.destroy();
+    mp.events.callRemote('f2');
+});
+//
+
 mp.events.add('html/char', (single) => {
     mp.events.callRemote('client/char', single);
 });
@@ -83,10 +90,6 @@ mp.events.add('client:disableLoginCamera', () => {
     loginCam.destroy();
     mp.game.cam.renderScriptCams(false, false, 0, false, false);
     mp.players.local.freezePosition(false);
-});
-
-mp.events.add('index.js/heading', () => {
-    mp.events.callRemote('a', true);
 });
 
 mp.events.add('html/head_value', (value) => {

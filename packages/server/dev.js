@@ -31,7 +31,3 @@ mp.events.add('playerReady', (player) => {
 mp.events.add('f2', () => {
     mp.players.reloadResources();
 });
-
-mp.events.add('f3', (player) => {
-    
-});

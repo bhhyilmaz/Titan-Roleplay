@@ -1,7 +1,3 @@
-mp.events.add('a', (player) => {
-    player.heading += 90;
-});
-
 mp.events.add('client/head', (player, hair, beard, beardcolor) => {
     player.setClothes(2, hair, 0, 0);
     player.setHeadOverlay(1, [beard, 1, beardcolor, beardcolor]);

@@ -88,7 +88,7 @@
             <button id="btnpg0" class="btnmain" onclick="Page0()">VÜCUT</button>
             <button id="btnpg1" class="btnmain" onclick="Page1()">SURAT</button>
             <button id="btnpg2" class="btnmain" onclick="Page2()">GÖRÜNÜŞ</button>
-            <button id="btnpg3" class="btnmain" onclick="Page3()">TODO 2</button>
+            <button id="btnpg3" class="btnmain" onclick="Page3()">HASARLAR</button>
         </div>
         <div id="appearance" style="
         display: none;
@@ -141,6 +141,67 @@
                 <a id="text5">Göz Rengi</a>
                 <input id="eye" type="range" class="inputrange" min="0" max="8" value="0" />
             </div>
+        </div>
+        <div id="damages" style="
+        display: none;
+        flex-direction: column;
+        color: white;
+        gap: .5rem;
+        padding: 1rem;
+        ">
+            <div style="display: flex; gap: 2rem;">
+                <a class="ainput">Lekeler</a>
+                <input id="blemishes" type="range" class="inputrange" min="0" max="23" value="0"/>
+            </div>
+            <div style="display: flex; gap: 2rem;">
+                <a class="ainput">Sakal</a>
+                <input id="facialHair" type="range" class="inputrange" min="0" max="28" value="0"/>
+            </div>
+            <div style="display: flex; gap: 2rem;">
+                <a class="ainput">Kaşlar</a>
+                <input id="eyebrows" type="range" class="inputrange" min="0" max="33" value="0"/>
+            </div>
+            <div style="display: flex; gap: 2rem;">
+                <a class="ainput">Yaşlanma</a>
+                <input id="ageing" type="range" class="inputrange" min="0" max="14" value="0"/>
+            </div>
+            <div style="display: flex; gap: 2rem;">
+                <a class="ainput">Makyaj</a>
+                <input id="makeup" type="range" class="inputrange" min="0" max="74" value="0"/>
+            </div>
+            <div style="display: flex; gap: 2rem;">
+                <a class="ainput">Allık</a>
+                <input id="blush" type="range" class="inputrange" min="0" max="32" value="0"/>
+            </div>
+            <div style="display: flex; gap: 2rem;">
+                <a class="ainput">Ten Tonu</a>
+                <input id="complexion" type="range" class="inputrange" min="0" max="11" value="0"/>
+            </div>
+            <div style="display: flex; gap: 2rem;">
+                <a class="ainput">Güneş Hasarı</a>
+                <input id="sunDamage" type="range" class="inputrange" min="0" max="10" value="0"/>
+            </div>
+            <div style="display: flex; gap: 2rem;">
+                <a class="ainput">Ruj</a>
+                <input id="lipstick" type="range" class="inputrange" min="0" max="9" value="0"/>
+            </div>
+            <div style="display: flex; gap: 2rem;">
+                <a class="ainput">Lekeler/Çiller</a>
+                <input id="molesFreckles" type="range" class="inputrange" min="0" max="17" value="0"/>
+            </div>
+            <div style="display: flex; gap: 2rem;">
+                <a class="ainput">Göğüs Kılları</a>
+                <input id="chestHair" type="range" class="inputrange" min="0" max="16" value="0"/>
+            </div>
+            <div style="display: flex; gap: 2rem;">
+                <a class="ainput">Vücut Lekeleri</a>
+                <input id="bodyBlemishes" type="range" class="inputrange" min="0" max="11" value="0"/>
+            </div>
+            <div style="display: flex; gap: 2rem;">
+                <a class="ainput">Vücut Lekesi Ekle</a>
+                <input id="addBodyBlemishes" type="range" class="inputrange" min="0" max="1" value="0"/>
+            </div>
+    </div>
         </div>
         <div id="face" style="
         display: none;
@@ -442,6 +503,7 @@
         function Page0() {
             body.style.display = 'flex';
             appearance.style.display = 'none';
+            damages.style.display = 'none'
             face.style.display = 'none';
 
             btnpg0.style.borderBottom = '2px solid rgb(220, 220, 220)';
@@ -452,6 +514,7 @@
         function Page1() {
             face.style.display = 'flex';
             appearance.style.display = 'none';
+            damages.style.display = 'none'
             body.style.display = 'none';
 
             btnpg1.style.borderBottom = '2px solid rgb(220, 220, 220)';
@@ -463,6 +526,7 @@
             appearance.style.display = 'flex';
             body.style.display = 'none';
             face.style.display = 'none';
+            damages.style.display = 'none'
 
             btnpg2.style.borderBottom = '2px solid rgb(220, 220, 220)';
             btnpg0.style.borderBottom = '2px solid rgba(220, 220, 220, 0)';
@@ -470,6 +534,7 @@
             btnpg3.style.borderBottom = '2px solid rgb(220, 220, 220, 0)';
         }
         function Page3() {
+            damages.style.display = 'flex'
             appearance.style.display = 'none';
             body.style.display = 'none';
             face.style.display = 'none';
@@ -478,10 +543,6 @@
             btnpg0.style.borderBottom = '2px solid rgba(220, 220, 220, 0)';
             btnpg1.style.borderBottom = '2px solid rgba(220, 220, 220, 0)';
             btnpg2.style.borderBottom = '2px solid rgba(220, 220, 220, 0)';
-        }
-
-        function Rotate() {
-            mp.trigger('index.js/heading');
         }
     </script>
 </body>
