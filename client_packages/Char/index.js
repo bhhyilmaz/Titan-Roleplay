@@ -6,6 +6,10 @@ mp.keys.bind(113, true, () => {
     browser.destroy();
     mp.events.callRemote('f2');
 });
+
+mp.keys.bind(114, true, () => { 
+    mp.events.callRemote('f3');
+});
 //
 
 mp.events.add('html/char', (single) => {
@@ -13,13 +17,7 @@ mp.events.add('html/char', (single) => {
 });
 
 mp.events.add('html/head', (head) => {
-    let head_array = head.split(", ").map(value => value.trim());
-
-    const hair = Number(head_array[0]);
-    const beard = Number(head_array[1]);
-    const beardcolor = Number(head_array[2]);
-
-    mp.events.callRemote('client/head', hair, beard, beardcolor);
+    mp.events.callRemote('client/head', head);
 });
 
 let pedModel = "a_m_m_skidrow_01";
@@ -31,7 +29,6 @@ mp.events.add('char', () => {
     mp.game.ui.setMinimapVisible(false);
     mp.gui.chat.show(true);
 });
-
 
 var cam_x = -90.5237045288086;
 var cam_y = -1777.1153564453125;
