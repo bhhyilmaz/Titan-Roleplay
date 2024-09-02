@@ -13,7 +13,6 @@
             font-family: "Roboto Slab", serif;
         }
         body {
-            /* background-image: url('./gameplay.webp'); */
             background-repeat: no-repeat;
             background-size: cover;
             background-position: center;
@@ -94,7 +93,6 @@
             <button id="btnpg0" class="btnmain" style="border-bottom: 2px solid rgb(220, 220, 220);" onclick="Page0()">VÜCUT</button>
             <button id="btnpg1" class="btnmain" onclick="Page1()">SURAT</button>
             <button id="btnpg2" class="btnmain" onclick="Page2()">TARZ</button>
-            <button id="btnpg3" class="btnmain" onclick="Page3()">HASARLAR</button>
         </div>
         <div id="appearance" style="
         display: none;
@@ -105,7 +103,7 @@
         ">
             <div class="section" style="display: flex; justify-content: space-between;">
                 <a class="ainput">Saç</a>
-                <input id="hair" type="range" class="inputrange" min="0" max="100" value="0" />
+                <input id="hair" type="range" class="inputrange" min="0" max="85" value="0" />
                 <a class="avalue" id="ahair">0</a>
             </div>
             <div class="section" style="display: flex; justify-content: space-between;">
@@ -123,15 +121,35 @@
                 <input id="inputdmg0" type="range" class="inputrange" min="-1" max="33" value="-1"/>
                 <a class="avalue" id="admg0">0</a>
             </div>
+            <div class="section" style="display: flex;  justify-content: space-between;">
+                <a class="ainput">Kaş Yüksekliği</a>
+                <input id="ff6" type="range" class="inputrange" min="-1.0" max="1.0" value="0.0" step="0.01" />
+                <a class="avalue" id="aff6">0.0</a>
+            </div>
+            <div class="section" style="display: flex; justify-content: space-between;">
+                <a class="ainput">Kaş Genişliği</a>
+                <input id="ff7" type="range" class="inputrange" min="-1.0" max="1.0" value="0.0" step="0.01" />
+                <a class="avalue" id="aff7">0.0</a>
+            </div>
+            <div class="section" style="display: flex; justify-content: space-between;">
+                <a class="ainput">Sakal</a>
+                <input id="beard" type="range" class="inputrange" min="-1" max="28" value="-1" />
+                <a class="avalue" id="abeard">0</a>
+            </div>
             <div class="section" style="display: flex; justify-content: space-between;">
                 <a class="ainput">Kıl Rengi</a>
                 <input id="beardcolor" type="range" class="inputrange" min="0" max="63" value="0" />
                 <a class="avalue" id="abeardcolor">0</a>
             </div>
             <div class="section" style="display: flex; justify-content: space-between;">
-                <a class="ainput">Sakal</a>
-                <input id="beard" type="range" class="inputrange" min="-1" max="28" value="-1" />
-                <a class="avalue" id="abeard">0</a>
+                <a class="ainput">Allık</a>
+                <input id="inputdmg2" type="range" class="inputrange" min="-1" max="15" value="-1"/>
+                <a class="avalue" id="admg2">0</a>
+            </div>
+            <div class="section" style="display: flex; justify-content: space-between;">
+                <a class="ainput">Ruj</a>
+                <input id="inputdmg4" type="range" class="inputrange" min="-1" max="7" value="-1"/>
+                <a class="avalue" id="admg4">0</a>
             </div>
         </div>
         <div id="body" style="
@@ -152,32 +170,19 @@
                 <a class="avalue" id="amother">0</a>
             </div>
             <div class="section" style="display: flex;  justify-content: space-between;">
-                <a class="ainput">Cilt</a>
-                <input id="fether_ratio" type="range" class="inputrange" min="0" max="45" value="0" />
-                <a class="avalue" id="afather">0</a>
-            </div>
-            <div class="section" style="display: flex;  justify-content: space-between;">
                 <a class="ainput">Göz Rengi</a>
                 <input id="eye" type="range" class="inputrange" min="0" max="8" value="0" />
                 <a class="avalue" id="aeye">0</a>
             </div>
-        </div>
-        <div id="damages" style="
-        display: none;
-        flex-direction: column;
-        color: white;
-        gap: .5rem;
-        padding: 1rem;
-        ">
-            <div class="section" style="display: flex; justify-content: space-between;">
-                <a class="ainput">Yaşlılık</a>
-                <input id="inputdmg1" type="range" class="inputrange" min="-1" max="14" value="-1"/>
-                <a class="avalue" id="admg1">0</a>
+            <div class="section" style="display: flex;  justify-content: space-between;">
+                <a class="ainput">Cilt</a>
+                <input id="fether_ratio" type="range" class="inputrange" min="0" max="45" value="0" />
+                <a class="avalue" id="afather">0</a>
             </div>
             <div class="section" style="display: flex; justify-content: space-between;">
-                <a class="ainput">Makyaj</a>
-                <input id="inputdmg2" type="range" class="inputrange" min="-1" max="15" value="-1"/>
-                <a class="avalue" id="admg2">0</a>
+                <a class="ainput">Cilt Kusurları</a>
+                <input id="inputdmg5" type="range" class="inputrange" min="-1" max="17" value="-1"/>
+                <a class="avalue" id="admg5">0</a>
             </div>
             <div class="section" style="display: flex; justify-content: space-between;">
                 <a class="ainput">Kızarıklık</a>
@@ -185,14 +190,9 @@
                 <a class="avalue" id="admg3">0</a>
             </div>
             <div class="section" style="display: flex; justify-content: space-between;">
-                <a class="ainput">Ruj</a>
-                <input id="inputdmg4" type="range" class="inputrange" min="-1" max="7" value="-1"/>
-                <a class="avalue" id="admg4">0</a>
-            </div>
-            <div class="section" style="display: flex; justify-content: space-between;">
-                <a class="ainput">Cilt Kusurları</a>
-                <input id="inputdmg5" type="range" class="inputrange" min="-1" max="17" value="-1"/>
-                <a class="avalue" id="admg5">0</a>
+                <a class="ainput">Yaşlılık</a>
+                <input id="inputdmg1" type="range" class="inputrange" min="-1" max="14" value="-1"/>
+                <a class="avalue" id="admg1">0</a>
             </div>
         </div>
         <div id="face" style="
@@ -202,16 +202,6 @@
         gap: .5rem;
         padding: 1rem;
         ">
-            <div class="section" style="display: flex;  justify-content: space-between;">
-                <a class="ainput">Kaş Yüksekliği</a>
-                <input id="ff6" type="range" class="inputrange" min="-1.0" max="1.0" value="0.0" step="0.01" />
-                <a class="avalue" id="aff6">0.0</a>
-            </div>
-            <div class="section" style="display: flex; justify-content: space-between;">
-                <a class="ainput">Kaş Genişliği</a>
-                <input id="ff7" type="range" class="inputrange" min="-1.0" max="1.0" value="0.0" step="0.01" />
-                <a class="avalue" id="aff7">0.0</a>
-            </div>
             <div class="section" style="display: flex; justify-content: space-between;">
                 <a class="ainput">Göz Boyutu</a>
                 <input id="ff11" type="range" class="inputrange" min="-1.0" max="1.0" value="0.0" step="0.01" />
@@ -545,7 +535,6 @@
             audio.play()
             body.style.display = 'flex';
             appearance.style.display = 'none';
-            damages.style.display = 'none'
             face.style.display = 'none';
 
             btnpg0.style.borderBottom = '2px solid rgb(220, 220, 220)';
@@ -557,7 +546,6 @@
             audio.play()
             face.style.display = 'flex';
             appearance.style.display = 'none';
-            damages.style.display = 'none'
             body.style.display = 'none';
 
             btnpg1.style.borderBottom = '2px solid rgb(220, 220, 220)';
@@ -570,24 +558,11 @@
             appearance.style.display = 'flex';
             body.style.display = 'none';
             face.style.display = 'none';
-            damages.style.display = 'none'
 
             btnpg2.style.borderBottom = '2px solid rgb(220, 220, 220)';
             btnpg0.style.borderBottom = '2px solid rgba(220, 220, 220, 0)';
             btnpg1.style.borderBottom = '2px solid rgba(220, 220, 220, 0)';
             btnpg3.style.borderBottom = '2px solid rgb(220, 220, 220, 0)';
-        }
-        function Page3() {
-            audio.play()
-            damages.style.display = 'flex'
-            appearance.style.display = 'none';
-            body.style.display = 'none';
-            face.style.display = 'none';
-
-            btnpg3.style.borderBottom = '2px solid rgb(220, 220, 220)';
-            btnpg0.style.borderBottom = '2px solid rgba(220, 220, 220, 0)';
-            btnpg1.style.borderBottom = '2px solid rgba(220, 220, 220, 0)';
-            btnpg2.style.borderBottom = '2px solid rgba(220, 220, 220, 0)';
         }
     </script>
 </body>

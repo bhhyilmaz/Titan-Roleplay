@@ -29,12 +29,8 @@ mp.events.add('client/char', (player, single) => {
 
     let val0 = false;
     switch (single_array[0]) {
-        case "true":
-            val0 = true;
-            break;
-        default:
-            val0 = false;
-            break;
+        case "true": val0 = true; break;
+        default: val0 = false; break;
     }
     let val1 = Number(single_array[1]);
     let val2 = Number(single_array[2]);
