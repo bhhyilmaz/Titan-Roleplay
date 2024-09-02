@@ -24,7 +24,7 @@
             background: transparent;
             cursor: pointer;
             appearance: none;
-            width: 13rem;
+            width: 20rem;
         }
 
         .inputrange::-webkit-slider-runnable-track {
@@ -64,7 +64,13 @@
         .avalue {
             width: 1vh;
             height: 1vh;
-            padding-right: 2vh;
+            padding-right: 3vh;
+            padding-left: 10vh;
+            padding-bottom: 1vh;
+        }
+
+        .section {
+            align-items: center;
         }
     </style>
     <div style="display: flex;">
@@ -85,9 +91,9 @@
         border-right: 2px solid rgb(140, 140, 140);
         ">
         <div style="gap: 1rem; justify-content: center; display: flex; padding: 1rem; margin: .5rem; border-bottom: 2px solid rgb(140, 140, 140);">
-            <button id="btnpg0" class="btnmain" onclick="Page0()">VÜCUT</button>
+            <button id="btnpg0" class="btnmain" style="border-bottom: 2px solid rgb(220, 220, 220);" onclick="Page0()">VÜCUT</button>
             <button id="btnpg1" class="btnmain" onclick="Page1()">SURAT</button>
-            <button id="btnpg2" class="btnmain" onclick="Page2()">GÖRÜNÜŞ</button>
+            <button id="btnpg2" class="btnmain" onclick="Page2()">TARZ</button>
             <button id="btnpg3" class="btnmain" onclick="Page3()">HASARLAR</button>
         </div>
         <div id="appearance" style="
@@ -97,49 +103,63 @@
         gap: .5rem;
         padding: 1rem;
         ">
-            <div style="display: flex;">
-                <a>Saç</a>
+            <div class="section" style="display: flex; justify-content: space-between;">
+                <a class="ainput">Saç</a>
                 <input id="hair" type="range" class="inputrange" min="0" max="100" value="0" />
+                <a class="avalue" id="ahair">0</a>
             </div>
-            <div style="display: flex;">
-                <a >Saç Rengi</a>
+            <div class="section" style="display: flex; justify-content: space-between;">
+                <a class="ainput">Saç Rengi</a>
                 <input id="hair1" type="range" class="inputrange" min="0" max="63" value="0" />
+                <a class="avalue" id="ahair1">0</a>
             </div>
-            <div style="display: flex;">
-                <a>Saç Röflesi</a>
+            <div class="section" style="display: flex; justify-content: space-between;">
+                <a class="ainput">Saç Röflesi</a>
                 <input id="hair2" type="range" class="inputrange" min="0" max="63" value="0" />
+                <a class="avalue" id="ahair2">0</a>
             </div>
-            <div style="display: flex;">
-                <a>Sakal</a>
-                <input id="beard" type="range" class="inputrange" min="0" max="28" value="0" />
+            <div class="section" style="display: flex; justify-content: space-between;">
+                <a class="ainput">Kaş</a>
+                <input id="inputdmg0" type="range" class="inputrange" min="-1" max="33" value="-1"/>
+                <a class="avalue" id="admg0">0</a>
             </div>
-            <div style="display: flex;">
-                <a>Sakal Rengi</a>
+            <div class="section" style="display: flex; justify-content: space-between;">
+                <a class="ainput">Kıl Rengi</a>
                 <input id="beardcolor" type="range" class="inputrange" min="0" max="63" value="0" />
+                <a class="avalue" id="abeardcolor">0</a>
+            </div>
+            <div class="section" style="display: flex; justify-content: space-between;">
+                <a class="ainput">Sakal</a>
+                <input id="beard" type="range" class="inputrange" min="-1" max="28" value="-1" />
+                <a class="avalue" id="abeard">0</a>
             </div>
         </div>
         <div id="body" style="
-        display: none;
+        display: flex;
         flex-direction: column;
         color: white;
         gap: .5rem;
         padding: 1rem;
         ">
-            <div style="display: flex; gap: 2rem;">
-                <a id="text0">Cinsiyet</a>
+            <div class="section" style="display: flex;  justify-content: space-between;">
+                <a class="ainput">Cinsiyet</a>
                 <input id="gender" type="range" class="inputrange" min="1" max="2" value="1"/>
+                <a class="avalue" id="agender">Erkek</a>
             </div>
-            <div style="display: flex;">
-                <a id="text1">Yüz Tipi</a>
+            <div class="section" style="display: flex;  justify-content: space-between;">
+                <a class="ainput">Yüz Tipi</a>
                 <input id="mother_ratio" type="range" class="inputrange" min="0" max="45" value="0" />
+                <a class="avalue" id="amother">0</a>
             </div>
-            <div style="display: flex;">
-                <a id="text2">Cilt</a>
+            <div class="section" style="display: flex;  justify-content: space-between;">
+                <a class="ainput">Cilt</a>
                 <input id="fether_ratio" type="range" class="inputrange" min="0" max="45" value="0" />
+                <a class="avalue" id="afather">0</a>
             </div>
-            <div style="display: flex;">
-                <a id="text5">Göz Rengi</a>
+            <div class="section" style="display: flex;  justify-content: space-between;">
+                <a class="ainput">Göz Rengi</a>
                 <input id="eye" type="range" class="inputrange" min="0" max="8" value="0" />
+                <a class="avalue" id="aeye">0</a>
             </div>
         </div>
         <div id="damages" style="
@@ -149,65 +169,30 @@
         gap: .5rem;
         padding: 1rem;
         ">
-            <div style="display: flex; gap: 2rem;">
-                <a class="ainput">Lekeler</a>
-                <input id="inputdmg0" type="range" class="inputrange" min="0" max="23" value="0"/>
-                <a class="avalue" id="admg0">0.0</a>
+            <div class="section" style="display: flex; justify-content: space-between;">
+                <a class="ainput">Yaşlılık</a>
+                <input id="inputdmg1" type="range" class="inputrange" min="-1" max="14" value="-1"/>
+                <a class="avalue" id="admg1">0</a>
             </div>
-            <div style="display: flex; gap: 2rem;">
-                <a class="ainput">Kaşlar</a>
-                <input id="inputdmg2" type="range" class="inputrange" min="0" max="33" value="0"/>
-                <a class="avalue" id="admg2">0.0</a>
-            </div>
-            <div style="display: flex; gap: 2rem;">
-                <a class="ainput">Yaşlanma</a>
-                <input id="inputdmg3" type="range" class="inputrange" min="0" max="14" value="0"/>
-                <a class="avalue" id="admg3">0.0</a>
-            </div>
-            <div style="display: flex; gap: 2rem;">
+            <div class="section" style="display: flex; justify-content: space-between;">
                 <a class="ainput">Makyaj</a>
-                <input id="inputdmg4" type="range" class="inputrange" min="0" max="74" value="0"/>
-                <a class="avalue" id="admg4">0.0</a>
+                <input id="inputdmg2" type="range" class="inputrange" min="-1" max="15" value="-1"/>
+                <a class="avalue" id="admg2">0</a>
             </div>
-            <div style="display: flex; gap: 2rem;">
-                <a class="ainput">Allık</a>
-                <input id="inputdmg5" type="range" class="inputrange" min="0" max="32" value="0"/>
-                <a class="avalue" id="admg5">0.0</a>
+            <div class="section" style="display: flex; justify-content: space-between;">
+                <a class="ainput">Kızarıklık</a>
+                <input id="inputdmg3" type="range" class="inputrange" min="-1" max="4" value="-1"/>
+                <a class="avalue" id="admg3">0</a>
             </div>
-            <div style="display: flex; gap: 2rem;">
-                <a class="ainput">Ten Tonu</a>
-                <input id="inputdm6" type="range" class="inputrange" min="0" max="11" value="0"/>
-                <a class="avalue" id="admg6">0.0</a>
-            </div>
-            <div style="display: flex; gap: 2rem;">
-                <a class="ainput">Güneş Hasarı</a>
-                <input id="inputdmg7" type="range" class="inputrange" min="0" max="10" value="0"/>
-                <a class="avalue" id="admg7">0.0</a>
-            </div>
-            <div style="display: flex; gap: 2rem;">
+            <div class="section" style="display: flex; justify-content: space-between;">
                 <a class="ainput">Ruj</a>
-                <input id="inputdmg8" type="range" class="inputrange" min="0" max="9" value="0"/>
-                <a class="avalue" id="admg8">0.0</a>
+                <input id="inputdmg4" type="range" class="inputrange" min="-1" max="7" value="-1"/>
+                <a class="avalue" id="admg4">0</a>
             </div>
-            <div style="display: flex; gap: 2rem;">
-                <a class="ainput">Lekeler/Çiller</a>
-                <input id="inputdmg9" type="range" class="inputrange" min="0" max="17" value="0"/>
-                <a class="avalue" id="admg9">0.0</a>
-            </div>
-            <div style="display: flex; gap: 2rem;">
-                <a class="ainput">Göğüs Kılları</a>
-                <input id="inputdmg10" type="range" class="inputrange" min="0" max="16" value="0"/>
-                <a class="avalue" id="admg10">0.0</a>
-            </div>
-            <div style="display: flex; gap: 2rem;">
-                <a class="ainput">Vücut Lekeleri</a>
-                <input id="inputdmg11" type="range" class="inputrange" min="0" max="11" value="0"/>
-                <a class="avalue" id="admg11">0.0</a>
-            </div>
-            <div style="display: flex; gap: 2rem;">
-                <a class="ainput">Vücut Lekesi Ekle</a>
-                <input id="inputdmg12" type="range" class="inputrange" min="0" max="1" value="0"/>
-                <a class="avalue" id="admg12">0.0</a>
+            <div class="section" style="display: flex; justify-content: space-between;">
+                <a class="ainput">Cilt Kusurları</a>
+                <input id="inputdmg5" type="range" class="inputrange" min="-1" max="17" value="-1"/>
+                <a class="avalue" id="admg5">0</a>
             </div>
         </div>
         <div id="face" style="
@@ -217,102 +202,102 @@
         gap: .5rem;
         padding: 1rem;
         ">
-            <div style="display: flex;  justify-content: space-between;">
+            <div class="section" style="display: flex;  justify-content: space-between;">
                 <a class="ainput">Kaş Yüksekliği</a>
                 <input id="ff6" type="range" class="inputrange" min="-1.0" max="1.0" value="0.0" step="0.01" />
                 <a class="avalue" id="aff6">0.0</a>
             </div>
-            <div style="display: flex; justify-content: space-between;">
+            <div class="section" style="display: flex; justify-content: space-between;">
                 <a class="ainput">Kaş Genişliği</a>
                 <input id="ff7" type="range" class="inputrange" min="-1.0" max="1.0" value="0.0" step="0.01" />
                 <a class="avalue" id="aff7">0.0</a>
             </div>
-            <div style="display: flex; justify-content: space-between;">
+            <div class="section" style="display: flex; justify-content: space-between;">
                 <a class="ainput">Göz Boyutu</a>
                 <input id="ff11" type="range" class="inputrange" min="-1.0" max="1.0" value="0.0" step="0.01" />
                 <a class="avalue" id="aff11">0.0</a>
             </div>
-            <div style="display: flex; justify-content: space-between;">
+            <div class="section" style="display: flex; justify-content: space-between;">
                 <a class="ainput">Elmacık Kemiği Yüksekliği</a>
                 <input  id="ff8" type="range" class="inputrange" min="-1.0" max="1.0" value="0.0" step="0.01" />
                 <a class="avalue" id="aff8">0.0</a>
             </div>
-            <div style="display: flex; justify-content: space-between;">
+            <div class="section" style="display: flex; justify-content: space-between;">
                 <a class="ainput">Elmacık Kemiği Genişliği</a>
                 <input id="ff9" type="range" class="inputrange" min="-1.0" max="1.0" value="0.0" step="0.01" />
                 <a class="avalue" id="aff9">0.0</a>
             </div>
-            <div style="display: flex; justify-content: space-between;">
+            <div class="section" style="display: flex; justify-content: space-between;">
                 <a class="ainput">Burun Genişliği</a>
                 <input id="ff0" type="range" class="inputrange" min="-1.0" max="1.0" value="0.0" step="0.01" />
                 <a class="avalue" id="aff0">0.0</a>
             </div>
-            <div style="display: flex; justify-content: space-between;">
+            <div class="section" style="display: flex; justify-content: space-between;">
                 <a class="ainput">Burun Yüksekliği</a>
                 <input id="ff1" type="range" class="inputrange" min="-1.0" max="1.0" value="0.0" step="0.01" />
                 <a class="avalue" id="aff1">0.0</a>
             </div>
-            <div style="display: flex; justify-content: space-between;">
+            <div class="section" style="display: flex; justify-content: space-between;">
                 <a class="ainput">Burun Uzunluğu</a>
                 <input id="ff2" type="range" class="inputrange" min="-1.0" max="1.0" value="0.0" step="0.01" />
                 <a class="avalue" id="aff2">0.0</a>
             </div>
-            <div style="display: flex; justify-content: space-between;">
+            <div class="section" style="display: flex; justify-content: space-between;">
                 <a class="ainput">Burun Köprüsü</a>
                 <input id="ff3" type="range" class="inputrange" min="-1.0" max="1.0" value="0.0" step="0.01" />
                 <a class="avalue" id="aff3">0.0</a>
             </div>
-            <div style="display: flex; justify-content: space-between;">
+            <div class="section" style="display: flex; justify-content: space-between;">
                 <a class="ainput">Burun Ucu</a>
                 <input id="ff4" type="range" class="inputrange" min="-1.0" max="1.0" value="0.0" step="0.01" />
                 <a class="avalue" id="aff4">0.0</a>
             </div>
-            <div style="display: flex; justify-content: space-between;">
+            <div class="section" style="display: flex; justify-content: space-between;">
                 <a class="ainput">Yanak Genişliği</a>
                 <input id="ff10" type="range" class="inputrange" min="-1.0" max="1.0" value="0.0" step="0.01" />
                 <a class="avalue" id="aff10">0.0</a>
             </div>
-            <div style="display: flex; justify-content: space-between;">
+            <div class="section" style="display: flex; justify-content: space-between;">
                 <a class="ainput">Jaw Genişliği</a>
                 <input id="ff13" type="range" class="inputrange" min="-1.0" max="1.0" value="0.0" step="0.01" />
                 <a class="avalue" id="aff13">0.0</a>
             </div>
-            <div style="display: flex; justify-content: space-between;">
+            <div class="section" style="display: flex; justify-content: space-between;">
                 <a class="ainput">Jaw Yüksekliği</a>
                 <input id="ff14" type="range" class="inputrange" min="-1.0" max="1.0" value="0.0" step="0.01" />
                 <a class="avalue" id="aff14">0.0</a>
             </div>
-            <div style="display: flex; justify-content: space-between;">
+            <div class="section" style="display: flex; justify-content: space-between;">
                 <a class="ainput">Dudak Kalınlığı</a>
                 <input id="ff12" type="range" class="inputrange" min="-1.0" max="1.0" value="0.0" step="0.01" />
                 <a class="avalue" id="aff12">0.0</a>
             </div>
-            <div style="display: flex; justify-content: space-between;">
+            <div class="section" style="display: flex; justify-content: space-between;">
                 <a class="ainput">Çene Uzunluğu</a>
                 <input id="ff15" type="range" class="inputrange" min="-1.0" max="1.0" value="0.0" step="0.01" />
                 <a class="avalue" id="aff15">0.0</a>
             </div>
-            <div style="display: flex; justify-content: space-between;">
+            <div class="section" style="display: flex; justify-content: space-between;">
                 <a class="ainput">Çene Yüksekliği</a>
                 <input id="ff16" type="range" class="inputrange" min="-1.0" max="1.0" value="0.0" step="0.01" />
                 <a class="avalue" id="aff16">0.0</a>
             </div>
-            <div style="display: flex; justify-content: space-between;">
+            <div class="section" style="display: flex; justify-content: space-between;">
                 <a class="ainput">Çene Genişliği</a>
                 <input id="ff17" type="range" class="inputrange" min="-1.0" max="1.0" value="0.0" step="0.01" />
                 <a class="avalue" id="aff17">0.0</a>
             </div>
-            <div style="display: flex; justify-content: space-between;">
+            <div class="section" style="display: flex; justify-content: space-between;">
                 <a class="ainput">Çene Şekli</a>
                 <input id="ff18" type="range" class="inputrange" min="-1.0" max="1.0" value="0.0" step="0.01" />
                 <a class="avalue" id="aff18">0.0</a>
             </div>
-            <div style="display: flex; justify-content: space-between;">
+            <div class="section" style="display: flex; justify-content: space-between;">
                 <a class="ainput">Boyun Genişliği</a>
                 <input id="ff19" type="range" class="inputrange" min="0" max="1.0" value="0.0" step="0.01" />
                 <a class="avalue" id="aff19">0.0</a>
             </div>
-            </div>
+        </div>
     </div>
         </div>
     </div>
@@ -329,7 +314,7 @@
                 "hair": "0",
                 "hair1": "0",
                 "hair2": "0",
-                "beard": "0",
+                "beard": "-1",
                 "beardcolor": "0",
                 "ff0": "0.0",
                 "ff1": "0.0",
@@ -350,46 +335,37 @@
                 "ff17": "0.0",
                 "ff18": "0.0",
                 "ff19": "0.0",
-                "inputdmg0": "0",
-                "inputdmg2": "0",
-                "inputdmg3": "0",
-                "inputdmg4": "0",
-                "inputdmg5": "0",
-                "inputdmg6": "0",
-                "inputdmg7": "0",
-                "inputdmg8": "0",
-                "inputdmg9": "0",
-                "inputdmg10": "0",
-                "inputdmg11": "0",
-                "inputdmg12": "0"
+                "inputdmg0": "-1",
+                "inputdmg1": "-1",
+                "inputdmg2": "-1",
+                "inputdmg3": "-1",
+                "inputdmg4": "-1",
+                "inputdmg5": "-1"
             }
         ]
 
         const 
-        [input0, input1, input2, input5, input6, input61, input62, input7, input71, ff0, ff1, ff2, ff3, ff4, ff6, ff7, ff8, ff9, ff10, ff11, ff12, ff13, ff14, ff15, ff16, ff17, ff18, ff19, inputdmg0, inputdmg2, inputdmg3, inputdmg4, inputdmg5, inputdmg6, inputdmg7, inputdmg8, inputdmg9, inputdmg10, inputdmg11, inputdmg12] = 
-        ['gender', 'mother_ratio', 'fether_ratio', 'eye', 'hair', 'hair1', 'hair2', 'beard', 'beardcolor', 'ff0', 'ff1', 'ff2', 'ff3', 'ff4', 'ff6', 'ff7', 'ff8', 'ff9', 'ff10', 'ff11', 'ff12', 'ff13', 'ff14', 'ff15', 'ff16', 'ff17', 'ff18', 'ff19', 'inputdmg0','inputdmg2', 'inputdmg3', 'inputdmg4', 'inputdmg5', 'inputdmg6', 'inputdmg7', 'inputdmg8', 'inputdmg9', 'inputdmg10', 'inputdmg11', 'inputdmg12']
+        [input0, input1, input2, input5, input6, input61, input62, input7, input71, ff0, ff1, ff2, ff3, ff4, ff6, ff7, ff8, ff9, ff10, ff11, ff12, ff13, ff14, ff15, ff16, ff17, ff18, ff19, inputdmg0, inputdmg1, inputdmg2, inputdmg3, inputdmg4, inputdmg5] = 
+        ['gender', 'mother_ratio', 'fether_ratio', 'eye', 'hair', 'hair1', 'hair2', 'beard', 'beardcolor', 'ff0', 'ff1', 'ff2', 'ff3', 'ff4', 'ff6', 'ff7', 'ff8', 'ff9', 'ff10', 'ff11', 'ff12', 'ff13', 'ff14', 'ff15', 'ff16', 'ff17', 'ff18', 'ff19', 'inputdmg0', 'inputdmg1', 'inputdmg2', 'inputdmg3', 'inputdmg4', 'inputdmg5']
         .map(id => document.getElementById(id));
 
         input0.addEventListener('input', function() {
             const value = parseInt(input0.value);
             for (let i = 1; i <= value; i++)
             switch (i) {
-                case 2: char[0].gender = "false"; break;
-                default: char[0].gender = "true"; break;
+                case 2: char[0].gender = "false"; document.getElementById('agender').innerHTML = "Kadın"; break;
+                default: char[0].gender = "true"; document.getElementById('agender').innerHTML = "Erkek"; break;
             }
             sendChar();
         });
 
-        function updateChar(prop, input) {
-            char[0][prop] = input.value;
-            sendChar();
-        }
-
         input1.addEventListener('input', function() {
+            document.getElementById('amother').innerHTML = input1.value;
             char[0].mother_ratio = input1.value
             sendChar();
         });
         input2.addEventListener('input', function() {
+            document.getElementById('afather').innerHTML = input2.value;
             char[0].father_ratio = input2.value
             sendChar();
         });
@@ -398,22 +374,27 @@
             sendChar();
         });
         input6.addEventListener('input', function() {
-            char[0].hair = input6.value
+            document.getElementById('ahair').innerHTML = input6.value;
+            char[0].hair = input6.value;
             sendHead();
         });
         input61.addEventListener('input', function() {
+            document.getElementById('ahair1').innerHTML = input61.value;
             char[0].hair1 = input61.value
             sendChar();
         });
         input62.addEventListener('input', function() {
+            document.getElementById('ahair2').innerHTML = input62.value;
             char[0].hair2 = input62.value
             sendChar();
         });
         input7.addEventListener('input', function() {
+            document.getElementById('abeard').innerHTML = input7.value;
             char[0].beard = input7.value
             sendHead();
         });
         input71.addEventListener('input', function() {
+            document.getElementById('abeardcolor').innerHTML = input71.value;
             char[0].beardcolor = input71.value
             sendHead();
         });
@@ -518,6 +499,11 @@
             char[0].inputdmg0 = inputdmg0.value
             sendHead();
         });
+        inputdmg1.addEventListener('input', function() {
+            document.getElementById('admg1').innerHTML = inputdmg1.value;
+            char[0].inputdmg1 = inputdmg1.value
+            sendHead();
+        });
         inputdmg2.addEventListener('input', function() {
             document.getElementById('admg2').innerHTML = inputdmg2.value;
             char[0].inputdmg2 = inputdmg2.value
@@ -525,52 +511,17 @@
         });
         inputdmg3.addEventListener('input', function() {
             document.getElementById('admg3').innerHTML = inputdmg3.value;
-            char[0].inputdmg3 = inputdmg3.value
+            char[0].inputdmg3 = inputdmg3.value;
             sendHead();
         });
         inputdmg4.addEventListener('input', function() {
             document.getElementById('admg4').innerHTML = inputdmg4.value;
-            char[0].inputdmg4 = inputdmg4.value
+            char[0].inputdmg4 = inputdmg4.value;
             sendHead();
         });
         inputdmg5.addEventListener('input', function() {
             document.getElementById('admg5').innerHTML = inputdmg5.value;
-            char[0].inputdmg5 = inputdmg5.value
-            sendHead();
-        });
-        inputdmg6.addEventListener('input', function() {
-            document.getElementById('admg6').innerHTML = inputdmg6.value;
-            char[0].inputdmg6 = inputdmg6.value
-            sendHead();
-        });
-        inputdmg7.addEventListener('input', function() {
-            document.getElementById('admg7').innerHTML = inputdmg7.value;
-            char[0].inputdmg7 = inputdmg7.value
-            sendHead();
-        });
-        inputdmg8.addEventListener('input', function() {
-            document.getElementById('admg8').innerHTML = inputdmg8.value;
-            char[0].inputdmg8 = inputdmg8.value
-            sendHead();
-        });
-        inputdmg9.addEventListener('input', function() {
-            document.getElementById('admg9').innerHTML = inputdmg9.value;
-            char[0].inputdmg9 = inputdmg9.value
-            sendHead();
-        });
-        inputdmg10.addEventListener('input', function() {
-            document.getElementById('admg10').innerHTML = inputdmg10.value;
-            char[0].inputdmg10 = inputdmg10.value
-            sendHead();
-        });
-        inputdmg11.addEventListener('input', function() {
-            document.getElementById('admg11').innerHTML = inputdmg11.value;
-            char[0].inputdmg11 = inputdmg11.value
-            sendHead();
-        });
-        inputdmg12.addEventListener('input', function() {
-            document.getElementById('admg12').innerHTML = inputdmg12.value;
-            char[0].inputdmg12 = inputdmg12.value
+            char[0].inputdmg5 = inputdmg5.value;
             sendHead();
         });
         
@@ -582,8 +533,7 @@
 
         function sendHead() {
             let c = char[0];
-            let head = `${c.hair}, ${c.beard}, ${c.beardcolor}, ${c.inputdmg0}, ${c.inputdmg2}, ${c.inputdmg3}, ${c.inputdmg4}, ${c.inputdmg5}, ${c.inputdmg6}, ${c.inputdmg7}, ${c.inputdmg8}, ${c.inputdmg9}, ${c.inputdmg10}, ${c.inputdmg11}, ${c.inputdmg12}`;
-            console.log(head)
+            let head = `${c.hair}, ${c.beard}, ${c.beardcolor}, ${c.inputdmg0}, ${c.inputdmg1}, ${c.inputdmg2}, ${c.inputdmg3}, ${c.inputdmg4}, ${c.inputdmg5}`;
             mp.trigger('html/head', head);
         }
 

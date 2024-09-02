@@ -4,34 +4,24 @@ mp.events.add('client/head', (player, head) => {
     const hair = Number(head_array[0]);
     const beard = Number(head_array[1]);
     const beardcolor = Number(head_array[2]);
-    const inputdmg0 = Number(head_array[3]);
-    const inputdmg2 = Number(head_array[5]);
-    const inputdmg3 = Number(head_array[6]);
-    const inputdmg4 = Number(head_array[7]);
-    const inputdmg5 = Number(head_array[8]);
-    const inputdmg6 = Number(head_array[9]);
-    const inputdmg7 = Number(head_array[10]);
-    const inputdmg8 = Number(head_array[11]);
-    const inputdmg9 = Number(head_array[12]);
-    const inputdmg10 = Number(head_array[13]);
-    const inputdmg11 = Number(head_array[14]);
-    const inputdmg12 = Number(head_array[15]);
+
+    const eyebrow = Number(head_array[3]);
+    const damage1 = Number(head_array[4]);
+    const damage2 = Number(head_array[5]);
+    const damage3 = Number(head_array[6]);
+    const damage4 = Number(head_array[7]);
+    const damage5 = Number(head_array[8]);
 
     player.setClothes(2, hair, 0, 0);
+
     player.setHeadOverlay(1, [beard, 1, beardcolor, beardcolor]);
 
-    player.setHeadOverlay(0, [inputdmg0, 1, 0, 0]);
-    player.setHeadOverlay(2, [inputdmg2, 1, 0, 0]);
-    player.setHeadOverlay(3, [inputdmg3, 1, 0, 0]);
-    player.setHeadOverlay(4, [inputdmg4, 1, 0, 0]);
-    player.setHeadOverlay(5, [inputdmg5, 1, 0, 0]);
-    player.setHeadOverlay(6, [inputdmg6, 1, 0, 0]);
-    player.setHeadOverlay(7, [inputdmg7, 1, 0, 0]);
-    player.setHeadOverlay(8, [inputdmg8, 1, 0, 0]);
-    player.setHeadOverlay(9, [inputdmg9, 1, 0, 0]);
-    player.setHeadOverlay(10, [inputdmg10, 1, 0, 0]);
-    player.setHeadOverlay(11, [inputdmg11, 1, 0, 0]);
-    player.setHeadOverlay(12, [inputdmg12, 1, 0, 0]);
+    player.setHeadOverlay(2, [eyebrow, 1, beardcolor, beardcolor]);
+    player.setHeadOverlay(3, [damage1, 1, 0, 0]);
+    player.setHeadOverlay(4, [damage2, 1, 0, 0]);
+    player.setHeadOverlay(5, [damage3, 1, 0, 0]);
+    player.setHeadOverlay(8, [damage4, 1, 0, 0]);
+    player.setHeadOverlay(9, [damage5, 1, 0, 0]);
 });
 
 mp.events.add('client/char', (player, single) => {

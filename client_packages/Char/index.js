@@ -30,9 +30,9 @@ mp.events.add('char', () => {
     mp.gui.chat.show(true);
 });
 
-var cam_x = -90.5237045288086;
-var cam_y = -1777.1153564453125;
-var cam_z = 29.568950653076172;
+var cam_x = -90.2;
+var cam_y = -1776.94;
+var cam_z = 29.56;
 
 mp.events.add('cam', () => {
     mp.game.time.setClockTime(12, 00, 00);
@@ -44,15 +44,13 @@ mp.events.add('cam', () => {
     mp.game.ui.displayRadar(false);
     cam = mp.cameras.new('default', new mp.Vector3(0, 0, 0), new mp.Vector3(0, 0, 0), 
     40);
-    // mp.players.local.position = new mp.Vector3(-89.46919250488281, -1777.118896484375, 28.99894142150879);
-    cam.pointAtCoord(-89.46919250488281, -1777.118896484375, 29.7)
+    cam.pointAtCoord(-89.46919250488281, cam_y, cam_z)
     cam.setActive(true);
     cam.setCoord(cam_x, cam_y, cam_z)
     mp.game.cam.renderScriptCams(true, false, 0, true, false);
     mp.players.local.freezePosition(false);
 });
 
-// Press H to state0 = true;
 var state0, state1;
 mp.keys.bind(65, true, () => {
     state0 = true;
@@ -67,7 +65,6 @@ mp.keys.bind(68, false, () => {
     state1 = false;
 });
 
-// dev function
 mp.events.add('render', () => {
     const cam_coord = cam.getCoord();
     const player = mp.players.local;
