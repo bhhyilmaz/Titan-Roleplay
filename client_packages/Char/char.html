@@ -303,6 +303,9 @@
     </div>
 
     <script>
+        const audio = new Audio();
+        audio.src = "click.mp3";
+
         let char = [
             {
                 "gender": "false",
@@ -370,6 +373,7 @@
             sendChar();
         });
         input5.addEventListener('input', function() {
+            document.getElementById('aeye').innerHTML = input5.value;
             char[0].eye = input5.value
             sendChar();
         });
@@ -538,6 +542,7 @@
         }
 
         function Page0() {
+            audio.play()
             body.style.display = 'flex';
             appearance.style.display = 'none';
             damages.style.display = 'none'
@@ -549,6 +554,7 @@
             btnpg3.style.borderBottom = '2px solid rgb(220, 220, 220, 0)';
         }
         function Page1() {
+            audio.play()
             face.style.display = 'flex';
             appearance.style.display = 'none';
             damages.style.display = 'none'
@@ -560,6 +566,7 @@
             btnpg3.style.borderBottom = '2px solid rgb(220, 220, 220, 0)';
         }
         function Page2() {
+            audio.play()
             appearance.style.display = 'flex';
             body.style.display = 'none';
             face.style.display = 'none';
@@ -571,6 +578,7 @@
             btnpg3.style.borderBottom = '2px solid rgb(220, 220, 220, 0)';
         }
         function Page3() {
+            audio.play()
             damages.style.display = 'flex'
             appearance.style.display = 'none';
             body.style.display = 'none';
