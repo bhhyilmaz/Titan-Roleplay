@@ -12,6 +12,10 @@ mp.keys.bind(114, true, () => {
 });
 //
 
+mp.events.add('html/char/animation', () => {
+    mp.events.callRemote('client/char/animation');
+});
+
 mp.events.add('html/char', (single) => {
     mp.events.callRemote('client/char', single);
 });

@@ -65,6 +65,8 @@ mp.events.add('client/char', (player, single) => {
             ff15, ff16, ff17, ff18, ff19,
         ]
     );
+});
 
+mp.events.add('client/char/animation', (player) => {
     player.playAnimation('anim@veh@heli@thruster@front@base', 'sit', 8, 1);
 });
