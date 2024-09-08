@@ -13,7 +13,7 @@
         * {
             outline: none;
             border: none;
-            user-select: none;
+            /* user-select: none; */
             font-family: "Roboto Slab", serif;
         }
         body {
@@ -74,9 +74,8 @@
             align-items: center;
         }
 
-        .inputBtm::placeholder {
-            font-size: 2vh;
-            color: #cecece;;
+        .race {
+            -webkit-appearance: none;
         }
     </style>
     <div style="display: flex;">
@@ -321,7 +320,7 @@
                         display: flex;
                         justify-content: center;
                         align-items: center;
-                        border-radius: .3rem;
+                        border-radius: .5rem;
                         ">
                             <a style="
                             border: .1px solid #cecece; 
@@ -343,7 +342,7 @@
                         display: flex;
                         justify-content: center;
                         align-items: center;
-                        border-radius: .3rem;
+                        border-radius: .5rem;
                         ">
                             <a style="
                             border: .1px solid #cecece; 
@@ -358,14 +357,55 @@
                         Sağa döndür    
                     </div>
                 </div>
-                <div style="display: flex;">
-                    <a>İsim</a>
-                    <input class="inputBtm" style="background-color: rgba(0, 0, 0, 0);">
+                <div style="display: flex; align-items: center; gap: 5rem; padding-right: 5rem;">
                     <div>
-                        Irk   
+                        <style>
+                        .inputBtm {
+                            background-color: transparent;
+                            font-size: 1.2rem;
+                            color: #cecece; 
+                            width: 6rem;
+                        }
+                        .inputBtm::placeholder {
+                            font-size: 1.2rem;
+                            color: #cecece; 
+                        }
+
+                        .ainputv2 {
+                            color: rgb(165, 165, 165);
+                            font-size: .80rem;
+                        }
+                        </style>
+                        <div>
+                            <div style="display: flex; align-items: center; gap: 5rem;">
+                                <div>
+                                    <a class="ainputv2">AD</a>
+                                    <input class="inputBtm" placeholder="John">
+                                </div>
+
+                                <div>
+                                    <a class="ainputv2">SOYAD</a>
+                                    <input class="inputBtm" placeholder="Nicholson">
+                                </div>
+                            </div>
+                        </div>
                     </div>
                     <div>
-                        Tamamla   
+                        <a class="ainputv2">IRK</a>
+                        <select class="race" style="background-color: transparent; font-size: 1.2rem; color: #cecece;">
+                                <option id="optionv2" value="0" class="optionv2" style="background-color: rgba(0, 0, 0, .6); color: #cecece;">White American</option>
+                                <option id="optionv2" value="1" class="optionv2" style="background-color: rgba(0, 0, 0, .6); color: #cecece;">African American</option>
+                                <option id="optionv2" value="2" class="optionv2" style="background-color: rgba(0, 0, 0, .6); color: #cecece;">Asian</option>
+                                <option id="optionv2" value="3" class="optionv2" style="background-color: rgba(0, 0, 0, .6); color: #cecece;">Indigenous American</option>
+                                <option id="optionv2" value="4" class="optionv2" style="background-color: rgba(0, 0, 0, .6); color: #cecece;">Pacific Islander</option>
+                                <option id="optionv2" value="5" class="optionv2" style="background-color: rgba(0, 0, 0, .6); color: #cecece;">Hispanic</option>
+                                <option id="optionv2" value="6" class="optionv2" style="background-color: rgba(0, 0, 0, .6); color: #cecece;">Middle Eastern</option>
+                                <option id="optionv2" value="7" class="optionv2" style="background-color: rgba(0, 0, 0, .6); color: #cecece;">Native Hawaiian</option>
+                                <option id="optionv2" value="8" class="optionv2" style="background-color: rgba(0, 0, 0, .6); color: #cecece;">Other</option>
+                        </select>
+                    </div>
+                    <div>
+                        <a style="color: green;">DEVAM</a>
                     </div>
                 </div>
             </div>
@@ -373,6 +413,18 @@
     </div>
 
     <script>
+
+        const options = document.querySelectorAll(".optionv2");
+        options.forEach(option => {
+            option.addEventListener("mouseover", () => {
+                option.style.backgroundColor = "aqua";
+            });
+            option.addEventListener("mouseout", () => {
+                option.style.backgroundColor = "aqua";
+            });
+        });
+        
+
         const audio = new Audio();
         audio.src = "click.mp3";
 
@@ -613,7 +665,8 @@
         }
 
         function Page0() {
-            audio.play()
+            audio.currentTime = 0;
+            audio.play();
             body.style.display = 'flex';
             appearance.style.display = 'none';
             face.style.display = 'none';
@@ -624,7 +677,8 @@
             btnpg3.style.borderBottom = '2px solid rgb(220, 220, 220, 0)';
         }
         function Page1() {
-            audio.play()
+            audio.currentTime = 0;
+            audio.play();
             face.style.display = 'flex';
             appearance.style.display = 'none';
             body.style.display = 'none';
@@ -635,7 +689,8 @@
             btnpg3.style.borderBottom = '2px solid rgb(220, 220, 220, 0)';
         }
         function Page2() {
-            audio.play()
+            audio.currentTime = 0;
+            audio.play();
             appearance.style.display = 'flex';
             body.style.display = 'none';
             face.style.display = 'none';
